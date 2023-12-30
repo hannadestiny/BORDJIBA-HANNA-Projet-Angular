@@ -1,0 +1,38 @@
+
+
+<mat-toolbar color="warm">
+    <mat-toolbar-row>
+      <main class ="container">
+        <div class="homeBtn">
+          <nav>
+          <a routerLink="/">
+            <button mat-button (click)="oponed()">
+              <mat-icon >
+                menu
+              </mat-icon> 
+              Menu
+            </button></a></nav>
+        </div>
+      </main>
+      <main class ="container">
+        <div class="LoginBtn">
+          <nav>
+          <a routerLink="/log">
+            <button mat-button *ngIf="!isLogged()" (click)="fal()">
+              <mat-icon >
+                person
+              </mat-icon> 
+              Login
+            </button></a></nav>
+        </div>
+      </main>
+  
+      <button mat-button (click)="logout()" *ngIf="isLogged()" >
+        <mat-icon >
+          person
+        </mat-icon> 
+        Logout
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

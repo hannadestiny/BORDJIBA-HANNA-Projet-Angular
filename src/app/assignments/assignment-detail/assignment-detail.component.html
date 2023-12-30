@@ -1,0 +1,23 @@
+<app-toolbar></app-toolbar>
+
+<div class="container">
+    <mat-card *ngIf="assignmentTransmis">
+        <mat-card-title>{{assignmentTransmis.nom}} a rendre </mat-card-title>
+        <mat-card-subtitle>{{assignmentTransmis.dateDeRendu |date}}</mat-card-subtitle> 
+            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()" [disabled]=!isAdmin() >
+                Devoir Rendu</mat-checkbox>
+            <br>
+            <br>
+            <div id="bottom">
+            <button mat-flat-button color="primary" (click)="onEdit()" [disabled]=!isAdmin()>
+                Modifier Devoir</button>
+            <br>
+            <br> 
+            <button mat-flat-button color="warn" (click)="onDelete()" [disabled]="!isAdmin()" >
+                Supprimer Devoir</button>
+         </div>
+    </mat-card>
+</div>
+
+<app-sidenav></app-sidenav>
+```

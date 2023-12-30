@@ -1,0 +1,9 @@
+<div id="container" [formGroup]="form">
+    <h1>{{ titre }}</h1>
+
+    <input type="text" formControlName="Username" [(ngModel)]="username" placeholder="Username" />
+    <input type="text" formControlName="Password"  [(ngModel)]="password" placeholder="Password" />
+
+    <button (click)="login()" [disabled]="!form.valid">Login</button>
+    
+</div>
