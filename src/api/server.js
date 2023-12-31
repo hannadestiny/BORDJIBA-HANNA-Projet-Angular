@@ -3,13 +3,12 @@ let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
 
-
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
 // remplacer toute cette chaine par l'URI de connexion à votre propre base dans le cloud s
-const uri = 'mongodb+srv://destinyhanna:THG15cHvbMDnJVr@cluster.k2p7lc1.mongodb.net/assignments?retryWrites=true&w=majorit';
+const uri = 'mongodb+srv://destinyhanna:THG15cHvbMDnJVr@cluster.k2p7lc1.mongodb.net/assignments?retryWrites=true&w=majority';
 
 const options = {
   useNewUrlParser: true,

@@ -10,8 +10,8 @@ import { HttpClient } from '@angular/common/http';
 export class AssignmentService {
 
   oponed = false;
-  url = "http://localhost:8010/api/assignments";
-  constructor(private logginService: LoggingService, private http:HttpClient ) { }
+  url = 'http://localhost:8010/api/assignments';
+  constructor( private http: HttpClient ) { }
   
     
   getAssignments():Observable<Assignment[]>{
@@ -28,7 +28,7 @@ export class AssignmentService {
   }
 
   deletedAssignment(assignment:Assignment):Observable<any>{
-    const deleteUrl = this.url+"/"+assignment._id;
+    const deleteUrl = `${this.url}/${assignment.id}`;
     return this.http.delete(deleteUrl);
   }
 

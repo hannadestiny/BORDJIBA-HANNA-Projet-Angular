@@ -31,8 +31,8 @@ export class AddAssignmentComponent {
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.rendu = false;
     
-    this.assignmentService.addAssignment(newAssignment).subscribe(message => console.log(message));
-    //this.router.navigate(['home']);
+    this.assignmentService.addAssignment(newAssignment).subscribe(message => {console.log(message);this.router.navigate(['home'])});
+    
 
   }
 
