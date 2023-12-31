@@ -28,7 +28,7 @@ export class AssignmentService {
   }
 
   deletedAssignment(assignment:Assignment):Observable<any>{
-    const deleteUrl = `${this.url}/${assignment.id}`;
+    const deleteUrl = this.url+"/"+assignment._id;
     return this.http.delete(deleteUrl);
   }
 
