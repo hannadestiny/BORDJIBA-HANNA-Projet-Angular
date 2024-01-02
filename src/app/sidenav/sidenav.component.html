@@ -10,7 +10,7 @@
         </div>
       </main>
       <button mat-button class="example-container" (click)="onEditAssignmentClick()">Modification d'un devoir</button>
-      <button mat-button class="example-container">Suppression d'un devoir</button>
+      <button mat-button class="example-container" (click)="onDeleteAssignmentClick()">Suppression d'un devoir</button>
       <button mat-button class="example-container">Génération de données de test</button>
       </mat-sidenav>
   
@@ -58,10 +58,35 @@
         </mat-list-item>
         </a></nav>
         
+        
+
       </mat-list>
   
       </main>
       
+      <main *ngIf="formVisibleC">
+        <h3>Liste des devoirs :</h3>
+    
+        <mat-list *ngFor="let assignment of assignments">
+          <nav><a routerLink="/assignment/{{assignment.id}}/delete">
+          <h4 mat-subheader>Date du rendu : {{assignment.dateDeRendu | date}}</h4>
+          <mat-list-item >
+          <p appRendu *ngIf="assignment.rendu; else nonSoumis">
+            Devoir intitule {{ assignment.nom }} a été rendu
+          </p>
+          <ng-template #nonSoumis >
+            <mat-divider></mat-divider>
+            Devoir intitule {{ assignment.nom }} n'a pas été rendu
+          </ng-template>
+          
+          </mat-list-item>
+          </a></nav>
+          
+  
+        </mat-list>
+    
+        </main>
+
     </mat-sidenav-content>
   </mat-sidenav-container>
   

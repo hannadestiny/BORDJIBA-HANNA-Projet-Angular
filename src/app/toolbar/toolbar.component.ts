@@ -11,7 +11,7 @@ import { AssignmentService } from '../shared/assignment.service';
 export class ToolbarComponent {
 
   constructor(private authService: AuthService, private router: Router, private assignment : AssignmentService) {
-    this.assignment.oponed = false;
+    
    }
 
   fal()

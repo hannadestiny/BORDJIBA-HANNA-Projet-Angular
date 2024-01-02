@@ -1,32 +1,4 @@
 
-table tr td {
-    border: 1px solid black;
-  }
-  
-  .rendu {
-    color:green;
-  }
-  
-  .nonSoumis {
-    color:red;
-    border:2px dashed red;
-    background-color:yellow;
-  }
-  
-  .form {
-    display:sideways;
-    flex-direction: column;
-    margin:5px;
-  }
-  
-  #monParagraphe {
-    color:pink
-  }
-  
-  section {
-    display: table;
-  }
-  
   .example-label {
     display: table-cell;
     font-size: 14px;
@@ -44,13 +16,13 @@ table tr td {
   }
   
   .example-flex-container {
-    display: flex;
+    display: grid;
     justify-content: space-between;
     flex-wrap: wrap;
   }
   
   .example-button-container {
-    display: flex;
+    display: grid;
     justify-content: center;
     width: 120px;
   }

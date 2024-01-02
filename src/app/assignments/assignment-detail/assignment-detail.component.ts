@@ -19,7 +19,7 @@ export class AssignmentDetailComponent implements OnInit {
               private route : ActivatedRoute,
               private router : Router,
               private authService : AuthService) {
-                this.assignmentService.oponed = false;
+              this.assignmentService.oponed = false;
                 
               }
 

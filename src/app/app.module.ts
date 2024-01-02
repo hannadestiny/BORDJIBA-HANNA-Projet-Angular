@@ -32,6 +32,7 @@ import { logGuard } from './shared/log.guard';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   {path: 'assignment/:id', component: AssignmentDetailComponent, canActivate:[logGuard]},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[authGuard]},
   {path: 'log', component: LogAssignmentComponent},
+  {path: 'assignment/:id/delete', component: DeleteAssignmentComponent, canActivate:[authGuard]},
 ];
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ const routes: Routes = [
     LogAssignmentComponent,
     ToolbarComponent,
     SidenavComponent,
+    DeleteAssignmentComponent,
 
 
   ],

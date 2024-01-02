@@ -1,0 +1,18 @@
+<app-toolbar></app-toolbar>
+
+<div class="container">
+    <mat-card *ngIf="assignmentTransmis">
+        <mat-card-title>{{assignmentTransmis.nom}} a rendre </mat-card-title>
+        <mat-card-subtitle>{{assignmentTransmis.dateDeRendu |date}}</mat-card-subtitle> 
+        <br>
+        <button mat-flat-button color="primary" (click)="retour()" >
+                Annuler</button>
+                <br>
+              
+            <button mat-flat-button color="warn" (click)="onDelete()" >
+                Supprimer </button>
+    </mat-card>
+</div>
+
+<app-sidenav></app-sidenav>
+```

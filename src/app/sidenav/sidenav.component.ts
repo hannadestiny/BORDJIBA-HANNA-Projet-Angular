@@ -15,7 +15,7 @@ export class SidenavComponent {
   
   formVisibleA = false;
   formVisibleB = false;
-
+  formVisibleC = false;
 
   assignments: Assignment[] = []; 
 
@@ -50,6 +50,7 @@ export class SidenavComponent {
   
     this.formVisibleA = !this.formVisibleA;
     this.formVisibleB = false;
+    this.formVisibleC = false;
     this.oponed = false;
     
   }
@@ -58,13 +59,22 @@ export class SidenavComponent {
    
     this.formVisibleB = !this.formVisibleB;
     this.formVisibleA = false;
+    this.formVisibleC = false;
     this.oponed = false;
   }
 
+  onDeleteAssignmentClick()
+  {
+      this.formVisibleC = !this.formVisibleC;
+      this.formVisibleA = false;
+      this.formVisibleB = false;
+      this.oponed = false;
+  }
   fal()
   {
     this.formVisibleA = false;
     this.formVisibleB = false;
+    this.formVisibleC = false;
     this.oponed = false;
 
   }
