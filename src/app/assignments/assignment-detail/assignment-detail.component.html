@@ -2,22 +2,40 @@
 
 <div class="container">
     <mat-card *ngIf="assignmentTransmis">
-        <mat-card-title>{{assignmentTransmis.nom}} a rendre </mat-card-title>
-        <mat-card-subtitle>{{assignmentTransmis.dateDeRendu |date}}</mat-card-subtitle> 
-            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()" [disabled]=!isAdmin() >
+        <br>
+        <mat-hint *ngIf="!assignmentTransmis.rendu" >Note entre 0 et 20 </mat-hint>
+        <form ngForm class ="form" *ngIf="!assignmentTransmis.rendu" >
+            <mat-form-field>
+              <mat-label> Note : </mat-label>
+              <input matInput
+                     placeholder="Note"
+                     [(ngModel)]="note"
+                     name="note"
+              />
+            </mat-form-field>
+        
+        </form>
+
+        <mat-card-title  *ngIf="!assignmentTransmis.rendu">{{assignmentTransmis.nomDevoir}} a rendre pour le {{assignmentTransmis.dateDeRendu |date}}</mat-card-title> 
+            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()" [disabled]="!isAdmin() || !notess()" >
                 Devoir Rendu</mat-checkbox>
             <br>
-            <br>
-            <div id="bottom">
-            <button mat-flat-button color="primary" (click)="onEdit()" [disabled]=!isAdmin()>
-                Modifier Devoir</button>
-            <br>
-            <br> 
-            <button mat-flat-button color="warn" (click)="onDelete()" [disabled]="!isAdmin()" >
-                Supprimer Devoir</button>
-         </div>
+            <mat-card *ngIf="assignmentTransmis.rendu">
+                <mat-card-title>{{assignmentTransmis.nomDevoir}} a été rendu </mat-card-title> 
+                <mat-card-content>
+                    <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
+                    <p> Matiere : {{assignmentTransmis.matiere }}</p>
+                    <p> Note : {{assignmentTransmis.note}}/20</p>
+                    <p> Commentaire : {{assignmentTransmis.remarque}}</p>
+                </mat-card-content>
+            </mat-card>
     </mat-card>
+
 </div>
+<div >
+    
+</div>
+
 
 <app-sidenav></app-sidenav>
 ```

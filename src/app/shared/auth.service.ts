@@ -40,7 +40,12 @@ export class AuthService {
   ]
 
   idd : number | undefined;
-
+ 
+  Usernamee()
+  {
+    return this.log.find((l) => l.id === this.idd)?.Username;
+  }
+  
   logIn(Username:string,Password:string){
     if (this.log.find((l) => l.Username === Username && l.Password === Password)){
       this.idd=this.log.find((l) => l.Username === Username && l.Password === Password)?.id;

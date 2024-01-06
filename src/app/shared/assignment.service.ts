@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Assignment } from '../assignments/assignment.model';
-import { Observable,of } from 'rxjs';
+import { Observable,catchError,map,of, tap } from 'rxjs';
 import { LoggingService } from './logging.service';
 import { HttpClient } from '@angular/common/http';
 
@@ -15,8 +15,8 @@ export class AssignmentService {
   
     
   getAssignments():Observable<Assignment[]>{
-     return this.http.get<Assignment[]>(this.url)
-    }
+     return this.http.get<Assignment[]>(this.url);
+  }
 
   addAssignment(assignment:Assignment):Observable<any>{
   
@@ -35,6 +35,12 @@ export class AssignmentService {
   getAssignment(id:number):Observable<Assignment|any>{
 
     return this.http.get<Assignment>(this.url+"/"+id);
-   
   } 
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(operation+" a echoue"+error.message);
+      return of(result as T);
+    };
+  }
 }

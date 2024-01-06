@@ -2,7 +2,7 @@
 
 <div class="container">
     <mat-card *ngIf="assignmentTransmis">
-        <mat-card-title>{{assignmentTransmis.nom}} a rendre </mat-card-title>
+        <mat-card-title>{{assignmentTransmis.nomDevoir}} a rendre </mat-card-title>
         <mat-card-subtitle>{{assignmentTransmis.dateDeRendu |date}}</mat-card-subtitle> 
         <br>
         <button mat-flat-button color="primary" (click)="retour()" >

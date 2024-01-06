@@ -12,7 +12,8 @@ export class LogAssignmentComponent {
   username: any;
   password: any;
   user: any;
-
+  hide = true;
+  
   form :FormGroup=this.fb.group({
     Username:['',Validators.required],
     Password:['',Validators.required]

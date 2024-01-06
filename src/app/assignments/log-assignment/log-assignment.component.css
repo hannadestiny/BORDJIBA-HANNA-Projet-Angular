@@ -1,6 +1,6 @@
 #container{
     display: flex;
-    height: 100vh;
+    height: 75vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -39,3 +39,8 @@ button{
         cursor: not-allowed;
     }
 }
+.example-c mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+ 

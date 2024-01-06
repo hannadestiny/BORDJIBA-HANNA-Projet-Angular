@@ -4,12 +4,18 @@ import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { Assignment } from '../assignments/assignment.model';
 
+
+
 @Component({
   selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.css']
 })
+
+
 export class SidenavComponent {
+
+  
   oponed = false;
   log =false;
   

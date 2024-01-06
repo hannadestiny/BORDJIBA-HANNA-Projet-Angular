@@ -2,13 +2,32 @@
 <app-toolbar></app-toolbar>
 <h1>{{ titre }}</h1>
 
+
 <form ngForm class ="form" (submit)="onSubmit($event)" #assignmentForm >
   <mat-form-field>
-    <mat-label> Nom : </mat-label>
+    <mat-label> Nom de l'auteur : </mat-label>
+    <input matInput
+           placeholder="Nom de l'auteur"
+           [(ngModel)]="nomAuteur"
+           name="nomAuteur"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label> Nom du devoir: </mat-label>
     <input matInput
            placeholder="Nom du devoir"
            [(ngModel)]="nomDevoir"
-           name="nom"
+           name="nomDevoir"
+    />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label> Matière : </mat-label>
+    <input matInput
+           placeholder="Matière"
+           [(ngModel)]="matiere"
+           name="matiere"
     />
   </mat-form-field>
 
@@ -24,5 +43,8 @@
   </mat-form-field>
   <button mat-stroked-button color="primary">Ajouter devoir</button>
 </form>
-
+<br>
+<input width="100%" matInput type="text"  placeholder="Remarques"
+[(ngModel)]="remarque"
+name="remarque"/>
 <app-sidenav></app-sidenav>

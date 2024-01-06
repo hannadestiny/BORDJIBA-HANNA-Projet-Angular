@@ -27,7 +27,7 @@ export class DeleteAssignmentComponent {
   }
   onDelete(){
     
-    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);this.router.navigate(['home'])});
+    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);this.router.navigate(['list'])});
   } 
 
   retour(){

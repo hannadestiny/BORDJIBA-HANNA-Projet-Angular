@@ -26,21 +26,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { authGuard } from './shared/auth.guard';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { Form } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import { map } from 'rxjs';
 import { LogAssignmentComponent } from './assignments/log-assignment/log-assignment.component';
 import { logGuard } from './shared/log.guard';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
+import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
+
 
 
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
   {path: 'home', component: AssignmentsComponent},
-  {path: 'add', component: AddAssignmentComponent, canActivate:[authGuard]},
+  {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
+  {path: 'list', component: ListAssignmentComponent},
   {path: 'assignment/:id', component: AssignmentDetailComponent, canActivate:[logGuard]},
-  {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[authGuard]},
+  {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'log', component: LogAssignmentComponent},
   {path: 'assignment/:id/delete', component: DeleteAssignmentComponent, canActivate:[authGuard]},
 ];
@@ -57,7 +61,8 @@ const routes: Routes = [
     ToolbarComponent,
     SidenavComponent,
     DeleteAssignmentComponent,
-
+    ListAssignmentComponent,
+   
 
   ],
   imports: [
@@ -67,7 +72,7 @@ const routes: Routes = [
     MatCardModule, MatFormFieldModule, MatInputModule,
     FormsModule, MatDatepickerModule, MatNativeDateModule, 
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
-    RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule
+    RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]

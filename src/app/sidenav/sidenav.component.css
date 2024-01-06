@@ -41,11 +41,9 @@
     width: 270px;
   }
   
-  .example-container {
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  table{
+    width: 100%;
   }
   
+
   

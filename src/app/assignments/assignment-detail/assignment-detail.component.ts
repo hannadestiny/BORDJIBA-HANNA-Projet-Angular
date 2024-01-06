@@ -13,6 +13,7 @@ export class AssignmentDetailComponent implements OnInit {
  
   assignmentTransmis: Assignment | any;
   check:boolean = false;
+  note: number | undefined;   
   
 
   constructor(private assignmentService: AssignmentService,
@@ -31,9 +32,13 @@ export class AssignmentDetailComponent implements OnInit {
 
   onAssignmentRendu() {
     this.assignmentTransmis!.rendu = true;
+    this.assignmentTransmis!.note = this.note;
+
+
     this.assignmentService.updateAssignment(this.assignmentTransmis!)
     .subscribe(message => {console.log(message);this.router.navigate(['assignment',this.assignmentTransmis!.id])});
     this.check=false;
+
   }
 
 
@@ -49,8 +54,15 @@ export class AssignmentDetailComponent implements OnInit {
     });
     
   }
+  
+  notess(){
+    if (this.note != undefined && this.note >= 0 && this.note <= 20 && this.note != null) {
+      return true;
+    }
+    return false;
+  }
 
   isAdmin(){
-    return this.authService.isLoggedAdmin;
+    return this.authService.isAdmin;
   }
 }

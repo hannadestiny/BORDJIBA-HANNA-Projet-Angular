@@ -23,14 +23,13 @@
   
       <mat-list *ngFor="let assignment of assignments">
         <nav><a routerLink="/assignment/{{assignment.id}}">
-        <h4 mat-subheader>Date du rendu : {{assignment.dateDeRendu | date}}</h4>
         <mat-list-item >
         <p appRendu *ngIf="assignment.rendu; else nonSoumis">
-          Devoir intitule {{ assignment.nom }} a été rendu
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu |date}} a été rendu
         </p>
         <ng-template #nonSoumis >
-          <mat-divider></mat-divider>
-          Devoir intitule {{ assignment.nom }} n'a pas été rendu
+          
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu | date}} n'a pas été encore rendu
         </ng-template>
         
         </mat-list-item>
@@ -45,45 +44,40 @@
   
       <mat-list *ngFor="let assignment of assignments">
         <nav><a routerLink="/assignment/{{assignment.id}}/edit">
-        <h4 mat-subheader>Date du rendu : {{assignment.dateDeRendu | date}}</h4>
         <mat-list-item >
         <p appRendu *ngIf="assignment.rendu; else nonSoumis">
-          Devoir intitule {{ assignment.nom }} a été rendu
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu |date}} a été rendu
         </p>
         <ng-template #nonSoumis >
-          <mat-divider></mat-divider>
-          Devoir intitule {{ assignment.nom }} n'a pas été rendu
+          
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu | date}} n'a pas été encore rendu
         </ng-template>
         
         </mat-list-item>
         </a></nav>
         
-        
-
       </mat-list>
   
       </main>
       
       <main *ngIf="formVisibleC">
         <h3>Liste des devoirs :</h3>
-    
-        <mat-list *ngFor="let assignment of assignments">
-          <nav><a routerLink="/assignment/{{assignment.id}}/delete">
-          <h4 mat-subheader>Date du rendu : {{assignment.dateDeRendu | date}}</h4>
-          <mat-list-item >
-          <p appRendu *ngIf="assignment.rendu; else nonSoumis">
-            Devoir intitule {{ assignment.nom }} a été rendu
-          </p>
-          <ng-template #nonSoumis >
-            <mat-divider></mat-divider>
-            Devoir intitule {{ assignment.nom }} n'a pas été rendu
-          </ng-template>
-          
-          </mat-list-item>
-          </a></nav>
-          
   
-        </mat-list>
+      <mat-list *ngFor="let assignment of assignments">
+        <nav><a routerLink="/assignment/{{assignment.id}}/delete">
+        <mat-list-item >
+        <p appRendu *ngIf="assignment.rendu; else nonSoumis">
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu |date}} a été rendu
+        </p>
+        <ng-template #nonSoumis >
+          
+          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu | date}} n'a pas été encore rendu
+        </ng-template>
+        
+        </mat-list-item>
+        </a></nav>
+        
+      </mat-list>
     
         </main>
 
