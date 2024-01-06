@@ -66,13 +66,17 @@ export class AuthService {
   isAdmin(){
     const isUserAdmin =new Promise(
       (resolve, reject) =>{
-        resolve(this.loggedIn&&this.log.find((l) => l.id === this.idd)?.fonction==='admin')
-
+        resolve(this.loggedIn&&this.log.find((l) => l.id === this.idd && l.fonction ==='admin')
+        )
       }
     );
     return isUserAdmin;
   }
   
+  isConnect(){
+    return this.loggedIn;
+  }
+
   isLogged(){
     const isUser =new Promise(
       (resolve, reject) =>{
@@ -81,4 +85,6 @@ export class AuthService {
     );
     return isUser;
   }
+
+  
 }

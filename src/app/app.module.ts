@@ -43,7 +43,7 @@ const routes: Routes = [
   {path: 'home', component: AssignmentsComponent},
   {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
   {path: 'list', component: ListAssignmentComponent},
-  {path: 'assignment/:id', component: AssignmentDetailComponent, canActivate:[logGuard]},
+  {path: 'assignment/:id', component: AssignmentDetailComponent},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'log', component: LogAssignmentComponent},
   {path: 'assignment/:id/delete', component: DeleteAssignmentComponent, canActivate:[authGuard]},

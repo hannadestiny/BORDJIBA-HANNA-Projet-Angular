@@ -58,11 +58,12 @@ export class AssignmentDetailComponent implements OnInit {
   notess(){
     if (this.note != undefined && this.note >= 0 && this.note <= 20 && this.note != null) {
       return true;
-    }
-    return false;
+    } else {
+    return false;}
   }
 
   isAdmin(){
-    return this.authService.isAdmin;
+    console.log(this.authService.isAdmin());
+    return this.authService.isConnect();
   }
 }

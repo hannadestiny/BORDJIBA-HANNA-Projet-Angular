@@ -1,12 +1,18 @@
 
 <mat-sidenav-container >
     <mat-sidenav *ngIf="isOponed()" [(opened)]="oponed" mode="side" #sidenav (click)="sidenav.toggle()">
-      <button mat-flat-button class="example-container" (click)="onListAssignmentClick()">Liste des devoirs</button>
+      <main class ="container" >
+        <div class="ajouterBtn">
+          <nav>
+          <a routerLink="/list">
+             <button mat-flat-button (click)="fal()">Liste des devoirs</button></a></nav>
+        </div>
+      </main>
       <main class ="container" >
         <div class="ajouterBtn">
           <nav>
           <a routerLink="/add">
-             <button mat-flat-button (click)="fal()">Ajouter un devoir </button></a></nav>
+             <button mat-flat-button (click)="fal()">Ajouter un devoir</button></a></nav>
         </div>
       </main>
       <button mat-button class="example-container" (click)="onEditAssignmentClick()">Modification d'un devoir</button>
@@ -18,26 +24,7 @@
   
     <mat-sidenav-content>
   
-      <main *ngIf="formVisibleB">
-      <h3>Liste des devoirs :</h3>
   
-      <mat-list *ngFor="let assignment of assignments">
-        <nav><a routerLink="/assignment/{{assignment.id}}">
-        <mat-list-item >
-        <p appRendu *ngIf="assignment.rendu; else nonSoumis">
-          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu |date}} a été rendu
-        </p>
-        <ng-template #nonSoumis >
-          
-          Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu | date}} n'a pas été encore rendu
-        </ng-template>
-        
-        </mat-list-item>
-        </a></nav>
-        
-      </mat-list>
-  
-      </main>
   
       <main *ngIf="formVisibleA">
       <h3>Liste des devoirs :</h3>

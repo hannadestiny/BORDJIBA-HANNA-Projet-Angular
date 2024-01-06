@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditAssignmentComponent {
   titre = "Formulaire de modification d'un devoir";
   assignment :Assignment | any;
-
+  
 
   constructor(private assignmentService: AssignmentService,
               private route : ActivatedRoute,

@@ -27,8 +27,7 @@ export class SidenavComponent {
 
   constructor (private assignmentsService:AssignmentService,
               private authService : AuthService,private router :Router){
-                this.formVisibleA = false;
-                this.formVisibleB = false;
+                
        
   }
 
@@ -55,31 +54,21 @@ export class SidenavComponent {
   {
   
     this.formVisibleA = !this.formVisibleA;
-    this.formVisibleB = false;
     this.formVisibleC = false;
     this.oponed = false;
     
   }
-  onListAssignmentClick()
-  {
-   
-    this.formVisibleB = !this.formVisibleB;
-    this.formVisibleA = false;
-    this.formVisibleC = false;
-    this.oponed = false;
-  }
+
 
   onDeleteAssignmentClick()
   {
       this.formVisibleC = !this.formVisibleC;
       this.formVisibleA = false;
-      this.formVisibleB = false;
       this.oponed = false;
   }
   fal()
   {
     this.formVisibleA = false;
-    this.formVisibleB = false;
     this.formVisibleC = false;
     this.oponed = false;
 

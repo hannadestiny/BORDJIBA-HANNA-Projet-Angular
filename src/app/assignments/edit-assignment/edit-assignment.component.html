@@ -3,13 +3,13 @@
 
 
 <form ngForm class ="form" (submit)="onSave($event)" #formupdate>
-  <h2>Edition du devoir {{assignment.nom}}</h2>
+  <h2>Edition du devoir {{assignment.nomDevoir}}</h2>
   <mat-form-field>
     <mat-label> Nom : </mat-label>
     <input matInput
            placeholder="Edition du nom"
-           [(ngModel)]="assignment.nom"
-           name="nom"
+           [(ngModel)]="assignment.nomDevoir"
+           name="nomDevoir"
     />
   </mat-form-field>
 

@@ -3,8 +3,8 @@
 <div class="container">
     <mat-card *ngIf="assignmentTransmis">
         <br>
-        <mat-hint *ngIf="!assignmentTransmis.rendu" >Note entre 0 et 20 </mat-hint>
-        <form ngForm class ="form" *ngIf="!assignmentTransmis.rendu" >
+        <mat-hint *ngIf="!assignmentTransmis.rendu && isAdmin() " >Note entre 0 et 20 </mat-hint>
+        <form ngForm class ="form" *ngIf="!assignmentTransmis.rendu && isAdmin()" >
             <mat-form-field>
               <mat-label> Note : </mat-label>
               <input matInput
@@ -17,7 +17,7 @@
         </form>
 
         <mat-card-title  *ngIf="!assignmentTransmis.rendu">{{assignmentTransmis.nomDevoir}} a rendre pour le {{assignmentTransmis.dateDeRendu |date}}</mat-card-title> 
-            <mat-checkbox *ngIf="!assignmentTransmis.rendu" (click)="onAssignmentRendu()" [disabled]="!isAdmin() || !notess()" >
+            <mat-checkbox *ngIf="!assignmentTransmis.rendu && isAdmin()" (click)="onAssignmentRendu()" [disabled]="!notess()" >
                 Devoir Rendu</mat-checkbox>
             <br>
             <mat-card *ngIf="assignmentTransmis.rendu">
@@ -29,6 +29,11 @@
                     <p> Commentaire : {{assignmentTransmis.remarque}}</p>
                 </mat-card-content>
             </mat-card>
+            <mat-card-content *ngIf="!assignmentTransmis.rendu" >
+                <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
+                <p> Matiere : {{assignmentTransmis.matiere }}</p>
+                <p> Commentaire : {{assignmentTransmis.remarque}}</p>
+            </mat-card-content>
     </mat-card>
 
 </div>
