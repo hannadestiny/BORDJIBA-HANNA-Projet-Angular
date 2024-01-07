@@ -12,17 +12,17 @@ h1{
     text-transform: uppercase;
 }
 
-input{
+.exemple{
     background-color: #e6e6e6;
     color: #666;
     padding: 20px 20px;
     border: 0px;
     margin-bottom: 10px;
-    width: 300px;
+    width: 200px;
 }
 
-button{
-    width: 340px;
+.exemple-focus{
+    width: 240px;
     text-align: center;
     padding: 20px 0px;
     background-color: #5c2ee4;
@@ -39,7 +39,7 @@ button{
         cursor: not-allowed;
     }
 }
-.example-c mat-form-field + mat-form-field {
+example-container mat-form-field + mat-form-field {
     margin-left: 8px;
   }
   
