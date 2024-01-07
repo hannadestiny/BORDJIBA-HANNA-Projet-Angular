@@ -24,11 +24,14 @@
 
   <mat-form-field>
     <mat-label> Matière : </mat-label>
-    <input matInput
-           placeholder="Matière"
-           [(ngModel)]="matiere"
-           name="matiere"
-    />
+    <mat-select placeholder="Matière"
+    [(ngModel)]="matiere"
+    name="matiere">
+      <mat-option value="Angular">Angular</mat-option>
+      <mat-option value="Management" >Management</mat-option>
+      <mat-option value="Java">Java</mat-option>
+      <mat-option value="Statistique">Statistique</mat-option>
+    </mat-select>
   </mat-form-field>
 
   <mat-form-field>
