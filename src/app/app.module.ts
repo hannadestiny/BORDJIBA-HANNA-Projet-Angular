@@ -38,6 +38,7 @@ import { ListAssignmentComponent } from './assignments/list-assignment/list-assi
 
 
 
+
 const routes: Routes = [
   {path: '', component: AssignmentsComponent},
   {path: 'home', component: AssignmentsComponent},
@@ -62,6 +63,7 @@ const routes: Routes = [
     SidenavComponent,
     DeleteAssignmentComponent,
     ListAssignmentComponent,
+  
    
 
   ],

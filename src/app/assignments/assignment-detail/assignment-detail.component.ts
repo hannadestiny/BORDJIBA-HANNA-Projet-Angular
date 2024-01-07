@@ -56,7 +56,7 @@ export class AssignmentDetailComponent implements OnInit {
   }
   
   notess(){
-    if (this.note != undefined && this.note >= 0 && this.note <= 20 && this.note != null) {
+    if (this.note !== undefined && this.note >= 0 && this.note <= 20 && this.note !== null && !isNaN(this.note) ) {
       return true;
     } else {
     return false;}

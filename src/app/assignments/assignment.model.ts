@@ -8,4 +8,5 @@ export class Assignment {
   note!: number;
   remarque !: string;
   auteur: string | undefined;
+  nomProf!: string;
 }

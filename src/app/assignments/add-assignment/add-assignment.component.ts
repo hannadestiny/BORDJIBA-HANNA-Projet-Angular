@@ -16,8 +16,9 @@ export class AddAssignmentComponent {
   titre = "Formulaire d'ajout de devoir";
   nomDevoir:string="";
   dateDeRendu:Date= new Date();
-matiere: string = "";
-remarque: string = "";
+  matiere: string = "";
+  remarque: string = "";
+  nomProf: string = "";
   
   
   
@@ -27,7 +28,19 @@ remarque: string = "";
     }
 
     nomAuteur = this.authService.Usernamee();
+    
    onSubmit(event: any) {
+    if (this.matiere === "Angular") {
+      this.nomProf = "M. Buffa";
+    } else if (this.matiere === "Management") {
+      this.nomProf= "M. Tounssi";
+    } else if (this.matiere === "Statistque") {
+      this.nomProf = "M. Donati";
+    } else if (this.matiere === "Java") {
+      this.nomProf = "M. Lahire";
+    }else{
+      this.nomProf = "";
+    }
     
     event.preventDefault();
     const newAssignment = new Assignment();
@@ -39,6 +52,7 @@ remarque: string = "";
     newAssignment.note = 0;
     newAssignment.remarque = this.remarque;
     newAssignment.rendu = false;
+    newAssignment.nomProf = this.nomProf;
     
     this.assignmentService.addAssignment(newAssignment).subscribe(message => {console.log(message);this.router.navigate(['list'])});
     
