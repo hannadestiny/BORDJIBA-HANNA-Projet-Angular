@@ -91,4 +91,8 @@ export class AssignmentDetailComponent implements OnInit {
     return this.assignmentTransmis.nomProf === "M. Lahire";
   }
 
+  mirbel()
+  {
+    return this.assignmentTransmis.nomProf === "Mme. Mirbel";
+  }
 }

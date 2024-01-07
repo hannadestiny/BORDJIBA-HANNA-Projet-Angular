@@ -38,8 +38,8 @@ export class AddAssignmentComponent {
       this.nomProf = "M. Donati";
     } else if (this.matiere === "Java") {
       this.nomProf = "M. Lahire";
-    }else{
-      this.nomProf = "";
+    }else if(this.matiere === "OIB"){
+      this.nomProf = "Mme. Mirbel";
     }
     
     event.preventDefault();
