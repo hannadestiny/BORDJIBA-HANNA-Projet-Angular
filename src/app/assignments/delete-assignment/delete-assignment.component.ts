@@ -27,10 +27,10 @@ export class DeleteAssignmentComponent {
   }
   onDelete(){
     
-    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);this.router.navigate(['list'])});
+    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);this.router.navigate(['/listdelete'])});
   } 
 
   retour(){
-    this.router.navigate(['home']);
+    this.router.navigate(['/listdelete']);
   }
 }

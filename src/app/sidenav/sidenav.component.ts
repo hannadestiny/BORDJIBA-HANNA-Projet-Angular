@@ -19,10 +19,6 @@ export class SidenavComponent {
   oponed = false;
   log =false;
   
-  formVisibleA = false;
-  formVisibleB = false;
-  formVisibleC = false;
-
   assignments: Assignment[] = []; 
 
   constructor (private assignmentsService:AssignmentService,
@@ -48,28 +44,9 @@ export class SidenavComponent {
     .subscribe((assignments) => this.assignments=assignments);
   }
 
- 
-  
-  onEditAssignmentClick()
-  {
-  
-    this.formVisibleA = !this.formVisibleA;
-    this.formVisibleC = false;
-    this.oponed = false;
-    
-  }
 
-
-  onDeleteAssignmentClick()
-  {
-      this.formVisibleC = !this.formVisibleC;
-      this.formVisibleA = false;
-      this.oponed = false;
-  }
   fal()
   {
-    this.formVisibleA = false;
-    this.formVisibleC = false;
     this.oponed = false;
 
   }

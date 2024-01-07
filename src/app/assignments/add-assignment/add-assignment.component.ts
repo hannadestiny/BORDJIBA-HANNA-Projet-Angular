@@ -59,4 +59,8 @@ export class AddAssignmentComponent {
 
   }
 
+  retour(){
+    this.router.navigate(['/list']);
+  }
+
 }

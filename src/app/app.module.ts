@@ -35,6 +35,8 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
 import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
+import { ListEditAssignmentComponent } from './assignments/list-edit-assignment/list-edit-assignment.component';
+import { ListDeleteAssignmentComponent } from './assignments/list-delete-assignment/list-delete-assignment.component';
 
 
 
@@ -44,6 +46,8 @@ const routes: Routes = [
   {path: 'home', component: AssignmentsComponent},
   {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
   {path: 'list', component: ListAssignmentComponent},
+  {path: 'listdelete', component: ListDeleteAssignmentComponent},
+  {path: 'listedit', component: ListEditAssignmentComponent},
   {path: 'assignment/:id', component: AssignmentDetailComponent},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'log', component: LogAssignmentComponent},
@@ -63,6 +67,8 @@ const routes: Routes = [
     SidenavComponent,
     DeleteAssignmentComponent,
     ListAssignmentComponent,
+    ListEditAssignmentComponent,
+    ListDeleteAssignmentComponent,
   
    
 

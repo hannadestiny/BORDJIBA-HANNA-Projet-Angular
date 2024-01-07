@@ -66,4 +66,8 @@ export class AssignmentDetailComponent implements OnInit {
     console.log(this.authService.isAdmin());
     return this.authService.isConnect();
   }
+
+  retour(){
+    this.router.navigate(['list']);
+  }
 }

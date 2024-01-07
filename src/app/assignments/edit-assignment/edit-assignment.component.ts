@@ -34,7 +34,11 @@ export class EditAssignmentComponent {
     event.preventDefault();
     
     this.assignmentService.updateAssignment(this.assignment).
-    subscribe(message => {console.log(message); this.router.navigate(['home'])});
+    subscribe(message => {console.log(message); this.router.navigate(['listedit'])});
     
+  }
+
+  retour(){
+    this.router.navigate(['/listedit']);
   }
 }

@@ -1,0 +1,22 @@
+<app-toolbar></app-toolbar>
+<div>
+    <h3>Liste des devoirs :</h3>
+  
+    <mat-list *ngFor="let assignment of assignments">
+      <nav><a routerLink="/assignment/{{assignment.id}}/edit">
+      <mat-list-item >
+      <p appRendu *ngIf="assignment.rendu; else nonSoumis">
+        Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu |date}} a été rendu
+      </p>
+      <ng-template #nonSoumis >
+        
+        Le devoir intitulé {{assignment.nomDevoir}} pour le {{assignment.dateDeRendu | date}} n'a pas été encore rendu
+      </ng-template>
+      
+      </mat-list-item>
+      </a></nav>
+      
+    </mat-list>
+</div>
+
+<app-sidenav></app-sidenav>
