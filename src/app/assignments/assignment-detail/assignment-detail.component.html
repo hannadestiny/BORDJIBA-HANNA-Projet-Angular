@@ -29,23 +29,35 @@
                 <mat-card-title>{{assignmentTransmis.nomDevoir}} a été rendu </mat-card-title> 
                 <mat-card-content>
                     <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
-                    <p> Matiere : {{assignmentTransmis.matiere }}</p>
-                    <p> Prof : {{assignmentTransmis.nomProf}}</p>
                     <p> Note : {{assignmentTransmis.note}}/20</p>
                     <p> Commentaire : {{assignmentTransmis.remarque}}</p>
+                    <p> Matiere : {{assignmentTransmis.matiere }}</p>
+                    <p> Prof : {{assignmentTransmis.nomProf}}</p>
+                    <img *ngIf="donati()" cImg align="end" rounded src="assets/image/donati.jpg" height="200"/>
+                    <img *ngIf="lahire()" cImg align="end" rounded src="assets/image/lahire.jpg" height="200"/>
+                    <img *ngIf="buffa()" cImg align="end" rounded src="assets/image/buffa.jpg" height="200"/>
+                    <img *ngIf="tounsi()" cImg align="end" rounded src="assets/image/tounsi.jpg" height="200"/>
+                    
                 </mat-card-content>
             </mat-card>
             <mat-card-content *ngIf="!assignmentTransmis.rendu" >
                 <p> Date de rendu : {{assignmentTransmis.dateDeRendu | date}}</p>
+                <p> Commentaire : {{assignmentTransmis.remarque}}</p>
                 <p> Matiere : {{assignmentTransmis.matiere }}</p>
                 <p> Prof : {{assignmentTransmis.nomProf}}</p>
-                <p> Commentaire : {{assignmentTransmis.remarque}}</p>
+                <img *ngIf="donati()" cImg align="end" rounded src="assets/image/donati.jpg" height="200"/>
+                <img *ngIf="lahire()" cImg align="end" rounded src="assets/image/lahire.jpg" height="200"/>
+                <img *ngIf="buffa()" cImg align="end" rounded src="assets/image/buffa.jpg" height="200"/>
+                <img *ngIf="tounsi()" cImg align="end" rounded src="assets/image/tounsi.jpg" height="200"/>
+                
             </mat-card-content>
     </mat-card>
 
     <br>
 <br>
 
+<br>
+<br>
 <button mat-flat-button color="primary" (click)="retour()" >
     Retour</button>
 

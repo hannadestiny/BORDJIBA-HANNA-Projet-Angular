@@ -27,7 +27,7 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { authGuard } from './shared/auth.guard';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTableModule} from '@angular/material/table';
-import { map } from 'rxjs';
+import { NgOptimizedImage } from '@angular/common'
 import { LogAssignmentComponent } from './assignments/log-assignment/log-assignment.component';
 import { logGuard } from './shared/log.guard';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -80,7 +80,8 @@ const routes: Routes = [
     MatCardModule, MatFormFieldModule, MatInputModule,
     FormsModule, MatDatepickerModule, MatNativeDateModule, 
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
-    RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule
+    RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule,
+    NgOptimizedImage,
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]

@@ -33,7 +33,7 @@ export class AddAssignmentComponent {
     if (this.matiere === "Angular") {
       this.nomProf = "M. Buffa";
     } else if (this.matiere === "Management") {
-      this.nomProf= "M. Tounssi";
+      this.nomProf= "M. Tounsi";
     } else if (this.matiere === "Statistique") {
       this.nomProf = "M. Donati";
     } else if (this.matiere === "Java") {

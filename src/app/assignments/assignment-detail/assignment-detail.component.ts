@@ -70,4 +70,25 @@ export class AssignmentDetailComponent implements OnInit {
   retour(){
     this.router.navigate(['list']);
   }
+
+  donati()
+  {
+    return this.assignmentTransmis.nomProf === "M. Donati";
+  }
+
+  buffa()
+  {
+    return this.assignmentTransmis.nomProf === "M. Buffa";
+  }
+
+  tounsi()
+  {
+    return this.assignmentTransmis.nomProf === "M. Tounsi";
+  }
+
+  lahire()
+  {
+    return this.assignmentTransmis.nomProf === "M. Lahire";
+  }
+
 }
