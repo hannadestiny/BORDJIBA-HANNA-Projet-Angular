@@ -37,7 +37,7 @@ export class ListAssignmentComponent {
       console.log(this.dataSource);
     });
   }
-  displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'rendu'];
+  displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'nomAuteur','rendu'];
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

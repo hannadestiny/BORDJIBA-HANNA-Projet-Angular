@@ -4,6 +4,7 @@ import { AssignmentService } from 'src/app/shared/assignment.service';
 import { Route, Router } from '@angular/router';
 import * as e from 'express';
 import { AuthService } from 'src/app/shared/auth.service';
+import { FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -19,16 +20,22 @@ export class AddAssignmentComponent {
   matiere: string = "";
   remarque: string = "";
   nomProf: string = "";
+  nomAuteur :string ="";
+  note: any;
+  rendu: boolean = false;
   
   
   
-    constructor(private assignmentService : AssignmentService, private router :Router, private authService : AuthService){
+    constructor(private assignmentService : AssignmentService,
+      private router :Router, 
+      private authService : AuthService,
+      private _formBuilder: FormBuilder){
       this.assignmentService.oponed = false;
         
     }
 
-    nomAuteur = this.authService.Usernamee();
-    
+ 
+  
    onSubmit(event: any) {
     if (this.matiere === "Angular") {
       this.nomProf = "M. Buffa";
@@ -41,6 +48,11 @@ export class AddAssignmentComponent {
     }else if(this.matiere === "OIB"){
       this.nomProf = "Mme. Mirbel";
     }
+
+    if (this.note !== undefined && this.note >= 0 && this.note <= 20 && this.note !== null && !isNaN(this.note) ) {
+      this.rendu = true;
+    } else {
+      this.rendu= false;}
     
     event.preventDefault();
     const newAssignment = new Assignment();
@@ -49,9 +61,9 @@ export class AddAssignmentComponent {
     newAssignment.dateDeRendu = this.dateDeRendu;
     newAssignment.matiere = this.matiere;
     newAssignment.auteur = this.nomAuteur;
-    newAssignment.note = 0;
+    newAssignment.note = this.note;
     newAssignment.remarque = this.remarque;
-    newAssignment.rendu = false;
+    newAssignment.rendu = this.rendu;
     newAssignment.nomProf = this.nomProf;
     
     this.assignmentService.addAssignment(newAssignment).subscribe(message => {console.log(message);this.router.navigate(['list'])});
@@ -62,5 +74,25 @@ export class AddAssignmentComponent {
   retour(){
     this.router.navigate(['/list']);
   }
+
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  thirdFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  fourthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  fifthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  sixthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false;
 
 }
