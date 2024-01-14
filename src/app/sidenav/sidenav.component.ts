@@ -18,14 +18,17 @@ export class SidenavComponent {
   
   oponed = false;
   log =false;
-  
   assignments: Assignment[] = []; 
+
+  Visible =false;
 
   constructor (private assignmentsService:AssignmentService,
               private authService : AuthService,private router :Router){
-                
+             
        
   }
+
+ 
 
   
   isOponed(){
@@ -43,10 +46,16 @@ export class SidenavComponent {
     this.assignmentsService.getAssignments()
     .subscribe((assignments) => this.assignments=assignments);
   }
-
+ 
+  islogged()
+  {
+    this.oponed = false;
+    return this.authService.isConnect();
+  }
 
   fal()
   {
+    
     this.oponed = false;
 
   }

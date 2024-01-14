@@ -49,6 +49,19 @@ export class AddAssignmentComponent {
       this.nomProf = "Mme. Mirbel";
     }
 
+    if (this.nomDevoir === "") {
+      alert("Vous devez entrer un nom de devoir");
+      return;
+    }
+    if (this.matiere === "") {
+      alert("Vous devez entrer une matière");
+      return;
+    }
+    if (this.nomAuteur === "") {
+      alert("Vous devez entrer un nom d'auteur");
+      return;
+    }
+
     if (this.note !== undefined && this.note >= 0 && this.note <= 20 && this.note !== null && !isNaN(this.note) ) {
       this.rendu = true;
     } else {

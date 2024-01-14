@@ -25,6 +25,9 @@ export class ToolbarComponent {
   oponed(){
     this.assignment.oponed = !this.assignment.oponed;
   }
+  oponed1(){
+    this.assignment.oponed = false;
+  }
 
   logout(){
     
@@ -39,5 +42,10 @@ export class ToolbarComponent {
     }
     
   
+  }
+
+  ho()
+  {
+    this.router.navigate(['home']);
   }
 }

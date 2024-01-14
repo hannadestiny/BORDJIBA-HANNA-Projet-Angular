@@ -40,6 +40,7 @@ import { ListDeleteAssignmentComponent } from './assignments/list-delete-assignm
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 const routes: Routes = [
@@ -82,7 +83,7 @@ const routes: Routes = [
     FormsModule, MatDatepickerModule, MatNativeDateModule, 
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
     RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule,
-    MatSortModule, MatPaginatorModule,MatStepperModule,
+    MatSortModule, MatPaginatorModule,MatStepperModule, MatExpansionModule,
     NgOptimizedImage,
   ],
   providers: [AssignmentService],
