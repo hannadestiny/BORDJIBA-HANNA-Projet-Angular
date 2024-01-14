@@ -12,9 +12,9 @@
         <mat-form-field>
           <mat-label>Name</mat-label>
           <input matInput
-           placeholder="Nom du devoir"
-           [(ngModel)]="nomDevoir"
-           name="nomDevoir"
+          placeholder="Nom du devoir"
+          [(ngModel)]="nomDevoir"
+          name="nomDevoir"
            required
           />
         </mat-form-field>
@@ -24,18 +24,18 @@
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Matière">
 
-        <mat-form-field>
-          <mat-select placeholder="Matière"
-          [(ngModel)]="matiere"
-          name="matiere"
-          required>
-            <mat-option value="Angular">Angular</mat-option>
-            <mat-option value="Management" >Management</mat-option>
-            <mat-option value="Java">Java</mat-option>
-            <mat-option value="Statistique">Statistique</mat-option>
-            <mat-option value="OIB">OIB</mat-option>
-          </mat-select>
-        </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Matière"
+        [(ngModel)]="matiere"
+        name="matiere"
+        required>
+          <mat-option value="Angular">Angular</mat-option>
+          <mat-option value="Management" >Management</mat-option>
+          <mat-option value="Java">Java</mat-option>
+          <mat-option value="Statistique">Statistique</mat-option>
+          <mat-option value="OIB">OIB</mat-option>
+        </mat-select>
+      </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Retour</button>
           <button mat-button matStepperNext>Suivant</button>
@@ -116,7 +116,7 @@
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepLabel>Ajouter le devoir</ng-template>
       <p>Ajouter ce devoir.</p>
       <div>
         <button mat-button matStepperPrevious>Retour</button>

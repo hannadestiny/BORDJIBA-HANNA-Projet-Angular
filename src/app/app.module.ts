@@ -41,6 +41,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 const routes: Routes = [
@@ -71,6 +72,7 @@ const routes: Routes = [
     ListAssignmentComponent,
     ListEditAssignmentComponent,
     ListDeleteAssignmentComponent,
+
   
    
 
@@ -84,7 +86,7 @@ const routes: Routes = [
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
     RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule,
     MatSortModule, MatPaginatorModule,MatStepperModule, MatExpansionModule,
-    NgOptimizedImage,
+    NgOptimizedImage,MatButtonModule,MatDialogModule
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]

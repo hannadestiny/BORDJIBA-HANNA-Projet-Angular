@@ -3,27 +3,9 @@
 <div class="container">
     <mat-card *ngIf="assignmentTransmis">
         <br>
-        <mat-hint *ngIf="!assignmentTransmis.rendu && isAdmin() " >Note entre 0 et 20 </mat-hint>
-        <form ngForm class ="form" *ngIf="!assignmentTransmis.rendu && isAdmin()" >
-            <mat-form-field>
-              <mat-label> Note : </mat-label>
-              <input ng-model="note"
-                        type="number"
-                        min="0"
-                        max="20"
-                        name="note"
-                        matInput
-                        placeholder="Note"
-                        [(ngModel)]="note"
-                        name="note"
-              />
-            </mat-form-field>
-        
-        </form>
 
         <mat-card-title  *ngIf="!assignmentTransmis.rendu">{{assignmentTransmis.nomDevoir}} a rendre pour le {{assignmentTransmis.dateDeRendu |date}}</mat-card-title> 
-            <mat-checkbox *ngIf="!assignmentTransmis.rendu && isAdmin()" (click)="onAssignmentRendu()" [disabled]="!notess()" >
-                Devoir Rendu</mat-checkbox>
+           
             <br>
             <mat-card *ngIf="assignmentTransmis.rendu">
                 <mat-card-title>{{assignmentTransmis.nomDevoir}} a été rendu </mat-card-title> 
@@ -61,6 +43,11 @@
 <br>
 <button mat-flat-button color="primary" (click)="retour()" >
     Retour</button>
+ <button mat-flat-button color="primary" [disabled]="!isLogged()" (click)="onedit()" >
+        Modifier</button>
+    
+<button mat-flat-button color="primary" [disabled]="!isAdmin()" (click)="ondelete()" >
+    Supprimer</button>
 
 </div>
 

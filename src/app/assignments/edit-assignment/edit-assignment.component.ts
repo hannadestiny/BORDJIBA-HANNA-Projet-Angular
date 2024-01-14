@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Assignment } from '../assignment.model';
 import { AssignmentService } from '../../shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-assignment',
@@ -11,8 +11,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class EditAssignmentComponent {
   assignment :Assignment | any;
-  a : Assignment | undefined;
+
   titre = "Formulaire d'ajout de devoir";
+  assignmentForm: any;
   
   
 
@@ -23,19 +24,33 @@ export class EditAssignmentComponent {
     this.assignmentService.oponed = false;
               }
 
+
+
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id')) ;
     this.assignmentService.getAssignment(id).subscribe(a => this.assignment = a);
 
-    const nom = this.route.snapshot.queryParamMap.get('nom');
-    const fragment = this.route.snapshot.fragment;
-    console.log("Query Params : " + nom);
-    console.log("Fragment : " + fragment);
+    this.assignmentForm = new FormGroup({
+      nomDevoir: new FormControl(),
+      matiere: new FormControl(),
+      dateDeRendu: new FormControl(),
+      auteur: new FormControl(),
+      remarque: new FormControl(),
+      note: new FormControl(),
+    });
+
+    // Set the initial form values
+    this.assignmentForm.patchValue(this.assignment);
+  
   }
 
 
+
+  
+
   onSave(event:any){
    
+
     if (this.assignment.matiere === "Angular") {
       this.assignment.nomProf = "M. Buffa";
     } else if (this.assignment.matiere === "Management") {

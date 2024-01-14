@@ -86,5 +86,11 @@ export class AuthService {
     return isUser;
   }
 
+  constructor(private loggingService: LoggingService) { }
+  
+  isAdmmin(){
+    return this.isLoggedAdmin;
+  }
+
   
 }

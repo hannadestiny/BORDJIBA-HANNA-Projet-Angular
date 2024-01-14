@@ -42,17 +42,12 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
 
-  onDelete(){
-    
-    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);this.router.navigate(['home'])});
-  } 
+  ondelete(){
+    this.router.navigate(['assignment',this.assignmentTransmis!.id,'delete']);
+  }
   
-  onEdit(){ 
-    this.router.navigate(['assignment',this.assignmentTransmis!.id,'edit'],{
-      queryParams : {nom : this.assignmentTransmis!.nom},
-      fragment : 'edition'
-    });
-    
+  onedit(){
+    this.router.navigate(['assignment',this.assignmentTransmis!.id,'edit']);
   }
   
   notess(){
@@ -63,10 +58,16 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
   isAdmin(){
-    console.log(this.authService.isAdmin());
-    return this.authService.isConnect();
+  
+    return this.authService.isAdmmin();
   }
 
+  isLogged(){
+    console.log(this.authService.isConnect());
+    
+    return this.authService.isConnect();
+
+  }
   retour(){
     this.router.navigate(['list']);
   }

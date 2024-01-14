@@ -6,7 +6,7 @@
      
         <a button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!islogged()">Modification d'un devoir</a>
           
-        <a button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!islogged()" >Suppression d'un devoir</a>
+        <a button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!isAdmin()" >Suppression d'un devoir</a>
         
       </mat-sidenav>
   

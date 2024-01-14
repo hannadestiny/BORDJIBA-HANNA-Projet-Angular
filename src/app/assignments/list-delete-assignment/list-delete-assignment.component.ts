@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class ListDeleteAssignmentComponent {
   assignments: Assignment[] = []; 
   dataSource: any;
+  status: string = 'tous';
 
   constructor (private assignmentsService:AssignmentService, private rout:Router ){
     this.assignmentsService.oponed = false;
@@ -23,6 +24,8 @@ export class ListDeleteAssignmentComponent {
     this.getAssignments();
   }
 
+  
+    
   po:Assignment[] = [];
   getAssignments()
   {
@@ -41,7 +44,24 @@ export class ListDeleteAssignmentComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
+    
+    
+    if (filterValue.trim().toLowerCase() == "rendu") {
+      this.dataSource.filter = "true";
+    }
+    if (filterValue.trim().toLowerCase() == "non rendu") {
+      this.dataSource.filter = "false";
+    }
+    
   }
 
+  applyFilter1(event: Event) {
+   
+    if (this.status === 'tous') {
+      this.dataSource.filter = '';
+    } else {
+      this.dataSource.filter = this.status === 'true' ? 'true' : 'false';
+    }
+
+  }
 }

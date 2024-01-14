@@ -47,6 +47,11 @@ export class SidenavComponent {
     .subscribe((assignments) => this.assignments=assignments);
   }
  
+  isAdmin(){
+  
+    return this.authService.isAdmmin();
+  }
+  
   islogged()
   {
     this.oponed = false;
