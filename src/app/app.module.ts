@@ -44,8 +44,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 
 const routes: Routes = [
-  {path: '', component: AssignmentsComponent},
-  {path: 'home', component: AssignmentsComponent},
+  {path: '', component: ListAssignmentComponent},
+  {path: 'home', component: ListAssignmentComponent},
   {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
   {path: 'list', component: ListAssignmentComponent},
   {path: 'listdelete', component: ListDeleteAssignmentComponent},

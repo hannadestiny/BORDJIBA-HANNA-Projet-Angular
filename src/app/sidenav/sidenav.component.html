@@ -1,12 +1,12 @@
-<mat-sidenav-container *ngIf="isOponed()" class="custom-sidenav-container">
-  <mat-sidenav  [opened]="oponed" mode="side" #sidenav >
-        <button mat-flat-button  [routerLink]="['/list']" (click)="fal()">Liste des devoirs</button>
+<mat-sidenav-container  class="custom-sidenav-container">
+  <mat-sidenav *ngIf="isOponed()" [opened]="oponed" mode="side" #sidenav >
+        <a button mat-flat-button  [routerLink]="['/list']" (click)="fal()">Liste des devoirs</a>
     
-        <button mat-flat-button [routerLink]="['/add']" (click)="fal()"  [disabled]="!islogged()">Ajouter un devoir</button>
+        <a button mat-flat-button [routerLink]="['/add']" (click)="fal()"  [disabled]="!islogged()">Ajouter un devoir</a>
      
-        <button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!islogged()">Modification d'un devoir</button>
+        <a button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!islogged()">Modification d'un devoir</a>
           
-        <button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!islogged()" >Suppression d'un devoir</button>
+        <a button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!islogged()" >Suppression d'un devoir</a>
         
       </mat-sidenav>
   

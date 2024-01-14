@@ -1,5 +1,4 @@
 
-<app-toolbar></app-toolbar>
 <h1>{{ titre }}</h1>
 
 <button mat-flat-button color="primary" (click)="retour()" >
@@ -20,7 +19,7 @@
           />
         </mat-form-field>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>Suivant</button>
         </div>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup" label="Matière">
@@ -38,8 +37,8 @@
           </mat-select>
         </mat-form-field>
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Retour</button>
+          <button mat-button matStepperNext>Suivant</button>
         </div>
     
     </mat-step>
@@ -57,8 +56,8 @@
         <mat-datepicker #picker>   </mat-datepicker>
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
       </div>
   
     </mat-step>
@@ -74,13 +73,13 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
       </div>
   
   </mat-step>
 
-    <mat-step [stepControl]="sixthFormGroup" label="Remarques">
+    <mat-step [stepControl]="sixthFormGroup" label="Remarques" optional>
       <ng-template matStepLabel>Remarques</ng-template>
       <mat-form-field>
         <mat-label>Remarques</mat-label>
@@ -90,12 +89,12 @@
         />
       </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
       </div>
     </mat-step>
   
-    <mat-step [stepControl]="fifthFormGroup" label="Status">
+    <mat-step [stepControl]="fifthFormGroup" label="Status" optional>
       <ng-template matStepLabel>Note</ng-template>
         <mat-form-field>
           <mat-label> Note : </mat-label>
@@ -111,8 +110,8 @@
           />
         </mat-form-field>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
       </div>
     </mat-step>
 
@@ -120,10 +119,10 @@
       <ng-template matStepLabel>Done</ng-template>
       <p>Ajouter ce devoir.</p>
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="onSubmit($event)">done</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button (click)="onSubmit($event)">Ajouter</button>
       </div>
     </mat-step>
   </mat-stepper>
 
-<app-sidenav></app-sidenav>
+
