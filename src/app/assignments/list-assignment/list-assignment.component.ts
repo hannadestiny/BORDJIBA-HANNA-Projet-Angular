@@ -15,6 +15,7 @@ export class ListAssignmentComponent {
   assignments: Assignment[] = []; 
   dataSource: any;
   status: string = 'tous';
+mat: any;
 
   constructor (private assignmentsService:AssignmentService, private rout:Router ){
     this.assignmentsService.oponed = false;
@@ -37,7 +38,6 @@ export class ListAssignmentComponent {
       this.po=this.assignments  ;
       this.dataSource = new MatTableDataSource(this.po);
       this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource);
     });
   }
   displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'nomAuteur','rendu'];
@@ -65,6 +65,24 @@ export class ListAssignmentComponent {
       this.dataSource.filter = '';
     } else {
       this.dataSource.filter = this.status === 'true' ? 'true' : 'false';
+    }
+
+  }
+
+  applyFilter2(event: Event) {
+   
+    if (this.mat === 'tous') {
+      this.dataSource.filter = '';
+    } else  if (this.mat === 'Angular') {
+      this.dataSource.filter = 'Angular';
+    } else  if (this.mat === 'Java') {
+      this.dataSource.filter = 'Java';
+    } else  if (this.mat === 'Management') {
+      this.dataSource.filter = 'Management';
+    } else  if (this.mat === 'OIB') {
+      this.dataSource.filter = 'OIB';
+    } else if (this.mat === 'Statistique') {
+      this.dataSource.filter = 'Statistique';
     }
 
   }

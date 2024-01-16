@@ -21,7 +21,22 @@
   <mat-option value="false">Non Rendu</mat-option>
   </mat-select>
 </mat-form-field>
+<mat-form-field>
 
+  <mat-label>Matiere</mat-label>
+
+  <mat-select mat-select  (selectionChange)="applyFilter2($event.value)"
+  placeholder="Matiere"
+  [(ngModel)]="mat"
+  name="mat">
+    <mat-option value="tous">Tous</mat-option>
+    <mat-option value="Angular">Angular</mat-option>
+    <mat-option value="Management" >Management</mat-option>
+    <mat-option value="Java">Java</mat-option>
+    <mat-option value="Statistique">Statistique</mat-option>
+    <mat-option value="OIB">OIB</mat-option>
+  </mat-select>
+</mat-form-field>
 
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
