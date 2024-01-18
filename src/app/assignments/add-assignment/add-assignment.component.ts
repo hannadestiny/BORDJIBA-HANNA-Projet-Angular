@@ -36,6 +36,10 @@ export class AddAssignmentComponent {
     }
 
  
+    isAdmin(){
+  
+      return this.authService.isAdmmin();
+    }
   
    onSubmit(event: any) {
     if (this.matiere === "Angular") {

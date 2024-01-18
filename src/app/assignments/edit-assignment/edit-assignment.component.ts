@@ -3,6 +3,7 @@ import { Assignment } from '../assignment.model';
 import { AssignmentService } from '../../shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-edit-assignment',
@@ -19,6 +20,7 @@ export class EditAssignmentComponent {
 
   constructor(private assignmentService: AssignmentService,
               private route : ActivatedRoute,
+              private authService : AuthService,
               private router : Router,
               private _formBuilder: FormBuilder) {
     this.assignmentService.oponed = false;
@@ -46,7 +48,11 @@ export class EditAssignmentComponent {
 
 
 
+  isAdmin(){
   
+    return this.authService.isAdmmin();
+  }  
+
 
   onSave(event:any){
    

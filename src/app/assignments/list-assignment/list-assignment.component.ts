@@ -15,7 +15,8 @@ export class ListAssignmentComponent {
   assignments: Assignment[] = []; 
   dataSource: any;
   status: string = 'tous';
-mat: any;
+  mat: string='tous';
+  filterValue: string = '';
 
   constructor (private assignmentsService:AssignmentService, private rout:Router ){
     this.assignmentsService.oponed = false;
@@ -44,48 +45,42 @@ mat: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
+  applyGlobalFilter() {
+    this.dataSource.filterPredicate = (data: Assignment, filter: string): boolean => {
+      const searchString = JSON.parse(filter);
+      const matchFilter = [];
+ 
+      const inputMatch = data.nomDevoir.toLowerCase().includes(searchString.input.toLowerCase());
+
+      const matMatch = searchString.mat === 'tous' || data.matiere === searchString.mat;
+
+      const statusMatch = searchString.status === 'tous' || (data.rendu.toString() === searchString.status);
+ 
+      matchFilter.push(inputMatch);
+      matchFilter.push(matMatch);
+      matchFilter.push(statusMatch);
+ 
+      return matchFilter.every(Boolean);
+    };
+ 
+    this.dataSource.filter = JSON.stringify({input: this.filterValue, mat: this.mat, status: this.status});
+  }
+  
   
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.filterValue = (event.target as HTMLInputElement).value;
     
-    
-    if (filterValue.trim().toLowerCase() == "rendu") {
-      this.dataSource.filter = "true";
-    }
-    if (filterValue.trim().toLowerCase() == "non rendu") {
-      this.dataSource.filter = "false";
-    }
-    
+    this.applyGlobalFilter();
   }
 
   applyFilter1(event: Event) {
-   
-    if (this.status === 'tous') {
-      this.dataSource.filter = '';
-    } else {
-      this.dataSource.filter = this.status === 'true' ? 'true' : 'false';
-    }
-
+    this.applyGlobalFilter();
   }
-
+ 
   applyFilter2(event: Event) {
-   
-    if (this.mat === 'tous') {
-      this.dataSource.filter = '';
-    } else  if (this.mat === 'Angular') {
-      this.dataSource.filter = 'Angular';
-    } else  if (this.mat === 'Java') {
-      this.dataSource.filter = 'Java';
-    } else  if (this.mat === 'Management') {
-      this.dataSource.filter = 'Management';
-    } else  if (this.mat === 'OIB') {
-      this.dataSource.filter = 'OIB';
-    } else if (this.mat === 'Statistique') {
-      this.dataSource.filter = 'Statistique';
-    }
-
+    this.applyGlobalFilter();
   }
+   
 }
   
 

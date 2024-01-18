@@ -14,6 +14,8 @@ export class ListDeleteAssignmentComponent {
   assignments: Assignment[] = []; 
   dataSource: any;
   status: string = 'tous';
+  filterValue: string = '';
+  mat : string = 'tous';
 
   constructor (private assignmentsService:AssignmentService, private rout:Router ){
     this.assignmentsService.oponed = false;
@@ -36,32 +38,45 @@ export class ListDeleteAssignmentComponent {
       this.po=this.assignments  ;
       this.dataSource = new MatTableDataSource(this.po);
       this.dataSource.paginator = this.paginator;
-      console.log(this.dataSource);
     });
   }
   displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'nomAuteur','rendu'];
+
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
+  applyGlobalFilter() {
+    this.dataSource.filterPredicate = (data: Assignment, filter: string): boolean => {
+      const searchString = JSON.parse(filter);
+      const matchFilter = [];
+ 
+      const inputMatch = data.nomDevoir.toLowerCase().includes(searchString.input.toLowerCase());
+
+      const matMatch = searchString.mat === 'tous' || data.matiere === searchString.mat;
+
+      const statusMatch = searchString.status === 'tous' || (data.rendu.toString() === searchString.status);
+ 
+      matchFilter.push(inputMatch);
+      matchFilter.push(matMatch);
+      matchFilter.push(statusMatch);
+ 
+      return matchFilter.every(Boolean);
+    };
+ 
+    this.dataSource.filter = JSON.stringify({input: this.filterValue, mat: this.mat, status: this.status});
+  }
+  
+  
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.filterValue = (event.target as HTMLInputElement).value;
     
-    
-    if (filterValue.trim().toLowerCase() == "rendu") {
-      this.dataSource.filter = "true";
-    }
-    if (filterValue.trim().toLowerCase() == "non rendu") {
-      this.dataSource.filter = "false";
-    }
-    
+    this.applyGlobalFilter();
   }
 
   applyFilter1(event: Event) {
-   
-    if (this.status === 'tous') {
-      this.dataSource.filter = '';
-    } else {
-      this.dataSource.filter = this.status === 'true' ? 'true' : 'false';
-    }
-
+    this.applyGlobalFilter();
+  }
+ 
+  applyFilter2(event: Event) {
+    this.applyGlobalFilter();
   }
 }

@@ -100,7 +100,7 @@
       </div>
     </mat-step>
   
-    <mat-step [stepControl]="fifthFormGroup" label="Status">
+    <mat-step *ngIf="isAdmin()" [stepControl]="fifthFormGroup" label="Status">
       <ng-template matStepLabel>Note</ng-template>
         <mat-form-field>
           <mat-label> Note : </mat-label>
