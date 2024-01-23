@@ -3,6 +3,9 @@ import { Assignment } from '../assignment.model';
 import { AssignmentService } from '../../shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from 'src/app/confirm-dialog/confirm-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-assignment-detail',
@@ -19,7 +22,9 @@ export class AssignmentDetailComponent implements OnInit {
   constructor(private assignmentService: AssignmentService,
               private route : ActivatedRoute,
               private router : Router,
-              private authService : AuthService) {
+              private authService : AuthService,
+              public dialog: MatDialog,
+              private _snackBar: MatSnackBar) {
               this.assignmentService.oponed = false;
                 
               }
@@ -42,8 +47,29 @@ export class AssignmentDetailComponent implements OnInit {
   }
 
 
-  ondelete(){
-    this.router.navigate(['assignment',this.assignmentTransmis!.id,'delete']);
+  onDelete(){
+    this.assignmentService.deletedAssignment(this.assignmentTransmis!).subscribe(message => {console.log(message);
+      this._snackBar.open("Le devoir "+this.assignmentTransmis.nomDevoir + " a été supprimé" , "Fermer", {
+        duration: 2000,
+      });  
+      this.router.navigate(['/list'])});
+    
+  } 
+
+
+  openConfirmDialog() {
+    if (this.assignmentTransmis) {
+      const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+        width: '400px'
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.onDelete();
+        }
+      });
+    }
+  
+   
   }
   
   onedit(){

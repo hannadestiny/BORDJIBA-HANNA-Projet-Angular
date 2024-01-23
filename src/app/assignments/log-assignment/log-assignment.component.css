@@ -1,46 +1,82 @@
-#container{
-    display: flex;
-    height: 75vh;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-h1{
-    color: #333;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-}
-
-.exemple{
-    background-color: #e6e6e6;
-    color: #666;
-    padding: 20px 20px;
-    border: 0px;
-    margin-bottom: 10px;
-    width: 200px;
-}
-
-.exemple-focus{
-    width: 240px;
-    text-align: center;
-    padding: 20px 0px;
-    background-color: #5c2ee4;
-    color: #fff;
-    border: 0px;
-    outline: none  ;
-    margin: 40px;
-    cursor: pointer;
-    text-transform: uppercase;
-
-    &[disabled]{
-        background-color: #ccc;
-        color: #666;
-        cursor: not-allowed;
-    }
-}
-example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
+#container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: #ffffff; 
+    border-left: 5px solid #007BFF;
   }
   
- 
+  #container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 20px;
+  }
+  
+  .exemple {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f9fa; 
+  }
+  
+  .exemple:focus {
+    outline: none;
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40,167,69,.25); 
+  }
+  
+  .example-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    background-color: #f8f9fa; 
+  }
+  
+  input.mat-input-element {
+    padding: 10px;
+    border: 1px solid #ced4da; 
+    border-radius: 5px;
+  }
+  
+  button.exemple-focus {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.exemple-focus:hover {
+    background-color: #231ca5;
+  }
+  
+  button.exemple-focus:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
+  
+  .mat-icon-button {
+    cursor: pointer;
+    color: #007BFF; 
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    #container {
+      width: 90%;
+      margin: 20px auto;
+    }
+  }
+  
+  

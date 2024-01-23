@@ -92,5 +92,5 @@ export class AuthService {
     return this.isLoggedAdmin;
   }
 
-  
+ 
 }

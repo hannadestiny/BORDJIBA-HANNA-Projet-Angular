@@ -4,6 +4,7 @@ import { AssignmentService } from 'src/app/shared/assignment.service';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Route, Router } from '@angular/router';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
 
 
 @Component({
@@ -20,9 +21,13 @@ export class ListAssignmentComponent {
 
   constructor (private assignmentsService:AssignmentService, private rout:Router ){
     this.assignmentsService.oponed = false;
+    this.dataSource = new MatTableDataSource(this.assignments);
   }
 
+  @ViewChild(MatSort, {static: true}) sort: MatSort | undefined;
+  displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'nomAuteur','rendu'];
 
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   ngOnInit() {
     this.getAssignments();
   }
@@ -38,12 +43,30 @@ export class ListAssignmentComponent {
       this.assignments=assignments;
       this.po=this.assignments  ;
       this.dataSource = new MatTableDataSource(this.po);
+      this.dataSource.sort = this.sort; 
       this.dataSource.paginator = this.paginator;
     });
   }
-  displayedColumns: string[] = ['position', 'name','matiere','nomProf', 'dateDeRendu', 'nomAuteur','rendu'];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  sortData(sort: Sort) {
+    const data = this.dataSource.data.slice();
+    if (!sort.active || sort.direction === '') {
+      this.dataSource.data = data;
+      return;
+    }
+
+    this.dataSource.data = data.sort((a: { id: number; dateDeRendu: string; }, b: { id: number; dateDeRendu: string; }) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'id':
+          return compare(a.id, b.id, isAsc);
+        case 'dateDeRendu': // Add this case
+          return compareDate(a.dateDeRendu, b.dateDeRendu, isAsc);
+        default:
+          return 0;
+      }
+    });
+  }
 
   applyGlobalFilter() {
     this.dataSource.filterPredicate = (data: Assignment, filter: string): boolean => {
@@ -81,6 +104,16 @@ export class ListAssignmentComponent {
     this.applyGlobalFilter();
   }
    
+  
 }
   
 
+function compare(a: number, b: number, isAsc: boolean) {
+  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
+function compareDate(a: string, b: string, isAsc: boolean) {
+  const dateA = new Date(a);
+  const dateB = new Date(b);
+  return (dateA < dateB ? -1 : 1) * (isAsc ? 1 : -1);
+}

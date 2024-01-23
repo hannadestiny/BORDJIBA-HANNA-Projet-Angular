@@ -10,8 +10,7 @@ import { MatInputModule } from '@angular/material/input';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AssignmentsComponent } from './assignments/assignments.component';
-import { RenduDirective } from './shared/rendu.directive';
-import { NonRenduDirective } from './shared/non-rendu.directive';
+
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
@@ -33,15 +32,17 @@ import { logGuard } from './shared/log.guard';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DeleteAssignmentComponent } from './assignments/delete-assignment/delete-assignment.component';
 import { ListAssignmentComponent } from './assignments/list-assignment/list-assignment.component';
 import { ListEditAssignmentComponent } from './assignments/list-edit-assignment/list-edit-assignment.component';
 import { ListDeleteAssignmentComponent } from './assignments/list-delete-assignment/list-delete-assignment.component';
-import {MatSortModule} from '@angular/material/sort';
+import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+
 
 
 const routes: Routes = [
@@ -54,27 +55,22 @@ const routes: Routes = [
   {path: 'assignment/:id', component: AssignmentDetailComponent},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'log', component: LogAssignmentComponent},
-  {path: 'assignment/:id/delete', component: DeleteAssignmentComponent, canActivate:[authGuard]},
+  {path: 'assignment/:id/delete', component: ListDeleteAssignmentComponent, canActivate:[authGuard]},
 ];
 @NgModule({
   declarations: [
     AppComponent,
     AssignmentsComponent,
-    RenduDirective,
-    NonRenduDirective,
     AssignmentDetailComponent,
     AddAssignmentComponent,
     EditAssignmentComponent,
     LogAssignmentComponent,
     ToolbarComponent,
     SidenavComponent,
-    DeleteAssignmentComponent,
     ListAssignmentComponent,
     ListEditAssignmentComponent,
     ListDeleteAssignmentComponent,
-
-  
-   
+    ConfirmDialogComponent,
 
   ],
   imports: [
@@ -86,7 +82,7 @@ const routes: Routes = [
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
     RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule,
     MatSortModule, MatPaginatorModule,MatStepperModule, MatExpansionModule,
-    NgOptimizedImage,MatButtonModule,MatDialogModule
+    NgOptimizedImage,MatButtonModule,MatDialogModule,MatSnackBarModule
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]

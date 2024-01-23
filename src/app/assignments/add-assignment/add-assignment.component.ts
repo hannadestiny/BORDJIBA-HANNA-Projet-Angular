@@ -5,6 +5,7 @@ import { Route, Router } from '@angular/router';
 
 import { AuthService } from 'src/app/shared/auth.service';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -12,6 +13,8 @@ import { FormBuilder, Validators } from '@angular/forms';
   templateUrl: './add-assignment.component.html',
   styleUrls: ['./add-assignment.component.css']
 })
+
+
 export class AddAssignmentComponent {
   a : Assignment | undefined;
   titre = "Formulaire d'ajout de devoir";
@@ -30,7 +33,8 @@ export class AddAssignmentComponent {
     constructor(private assignmentService : AssignmentService,
       private router :Router, 
       private authService : AuthService,
-      private _formBuilder: FormBuilder){
+      private _formBuilder: FormBuilder,
+      private _snackBar: MatSnackBar  ){
       this.assignmentService.oponed = false;
         
     }
@@ -84,9 +88,11 @@ export class AddAssignmentComponent {
     newAssignment.rendu = this.rendu;
     newAssignment.nomProf = this.nomProf;
     
-    this.assignmentService.addAssignment(newAssignment).subscribe(message => {console.log(message);this.router.navigate(['list'])});
-    
-
+    this.assignmentService.addAssignment(newAssignment).subscribe(message => {console.log(message);
+      this._snackBar.open("Le devoir "+ this.nomDevoir +" a été ajouté", "Fermer", {
+        duration: 2000,
+      });
+      this.router.navigate(['list'])});
   }
 
   retour(){

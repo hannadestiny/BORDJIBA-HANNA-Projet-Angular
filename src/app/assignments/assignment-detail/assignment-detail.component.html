@@ -19,6 +19,7 @@
                     <img *ngIf="lahire()" cImg align="end" rounded src="assets/image/lahire.jpg" height="200"/>
                     <img *ngIf="buffa()" cImg align="end" rounded src="assets/image/buffa.jpg" height="200"/>
                     <img *ngIf="tounsi()" cImg align="end" rounded src="assets/image/tounsi.jpg" height="200"/>
+                    <img *ngIf="mirbel()" cImg align="end" rounded src="assets/image/mirbel.jpg" height="200"/>
                     
                 </mat-card-content>
             </mat-card>
@@ -46,7 +47,7 @@
  <button mat-flat-button color="primary" [disabled]="!isLogged()" (click)="onedit()" >
         Modifier</button>
     
-<button mat-flat-button color="primary" [disabled]="!isAdmin()" (click)="ondelete()" >
+<button mat-flat-button color="primary" [disabled]="!isAdmin()" (click)="openConfirmDialog()" >
     Supprimer</button>
 
 </div>

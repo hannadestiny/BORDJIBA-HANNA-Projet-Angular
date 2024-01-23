@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { AssignmentService } from '../shared/assignment.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,7 +11,7 @@ import { AssignmentService } from '../shared/assignment.service';
 })
 export class ToolbarComponent {
 
-  constructor(private authService: AuthService, private router: Router, private assignment : AssignmentService) {
+  constructor(private authService: AuthService, private router: Router, private assignment : AssignmentService,private _snackBar: MatSnackBar) {
     
    }
 
@@ -37,6 +38,9 @@ export class ToolbarComponent {
       this.authService.logOut();
       this.router.navigate(['home']);
       console.log("deconnecte");
+      this._snackBar.open("A  bientôt "+ this.authService.Usernamee(), "OK", {
+        duration: 3000,
+      });
     } else{
       this.router.navigate(['home']);
     }

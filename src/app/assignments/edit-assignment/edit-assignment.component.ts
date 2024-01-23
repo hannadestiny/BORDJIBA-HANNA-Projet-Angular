@@ -4,6 +4,7 @@ import { AssignmentService } from '../../shared/assignment.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-assignment',
@@ -22,7 +23,8 @@ export class EditAssignmentComponent {
               private route : ActivatedRoute,
               private authService : AuthService,
               private router : Router,
-              private _formBuilder: FormBuilder) {
+              private _formBuilder: FormBuilder,
+              private _snackBar: MatSnackBar) {
     this.assignmentService.oponed = false;
               }
 
@@ -75,7 +77,11 @@ export class EditAssignmentComponent {
       this.assignment.rendu= false;}
       
     this.assignmentService.updateAssignment(this.assignment).
-    subscribe(message => {console.log(message); this.router.navigate(['listedit'])});
+    subscribe(message => {console.log(message);
+      this._snackBar.open("Le devoir "+this.assignment.nomDevoir + " a été modifié" , "Fermer", {
+        duration: 2000,
+      });  
+      this.router.navigate(['listedit'])});
     
   }
 

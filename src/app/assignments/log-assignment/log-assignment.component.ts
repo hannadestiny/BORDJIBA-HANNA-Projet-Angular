@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/auth.service';
 
@@ -19,7 +20,7 @@ export class LogAssignmentComponent {
     Password:['',Validators.required]
   });
 
-  constructor(private authService : AuthService, private fb: FormBuilder, private router:Router){ }
+  constructor(private authService : AuthService, private fb: FormBuilder, private router:Router,private _snackBar: MatSnackBar){ }
     ngOnInit(): void {
     }
 
@@ -29,9 +30,15 @@ export class LogAssignmentComponent {
       let user= this.authService.logIn(this.form.value.Username,this.form.value.Password);
       if (!user){
         console.log("non connecte");
+        this._snackBar.open("Veuillez vérifier vos identifiants", "OK", {
+          duration: 2000,
+        });
       }
       else{
         console.log(" connecte");
+        this._snackBar.open("Bienvenue "+this.form.value.Username, "OK", {
+          duration: 2000,
+        });
       }
 
       this.router.navigate(['home']);
