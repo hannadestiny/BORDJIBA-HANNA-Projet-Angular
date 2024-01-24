@@ -1,0 +1,9 @@
+
+<h1>Générer les assignments</h1>
+<div class="assignment-generator">
+    <input type="number" [(ngModel)]="numberOfAssignments" placeholder="Enter number of assignments" name="numAssignments" min="1">
+    <button class="generate-btn" (click)="generateAssignments()">Générer les assignments</button>
+</div>
+ 
+<br>
+<button class="back-btn" mat-flat-button color="primary" (click)="retour()">Retour</button>

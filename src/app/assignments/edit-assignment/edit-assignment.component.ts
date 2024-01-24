@@ -69,6 +69,8 @@ export class EditAssignmentComponent {
       this.assignment.nomProf = "M. Lahire";
     }else if(this.assignment.matiere === "OIB"){
       this.assignment.nomProf = "Mme. Mirbel";
+    }else if (this.assignment.matiere === "Communication") {
+      this.assignment.nomProf = "M. Arnault";
     }
 
     if (this.assignment.note !== undefined && this.assignment.note >= 0 && this.assignment.note <= 20 && this.assignment.note !== null && !isNaN(this.assignment.note) ) {

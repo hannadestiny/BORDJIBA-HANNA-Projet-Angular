@@ -42,6 +42,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { GenerateAssignmentsComponent } from './assignments/generate-assignments/generate-assignments.component';
 
 
 
@@ -56,6 +57,7 @@ const routes: Routes = [
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'log', component: LogAssignmentComponent},
   {path: 'assignment/:id/delete', component: ListDeleteAssignmentComponent, canActivate:[authGuard]},
+  {path: 'generate', component: GenerateAssignmentsComponent, canActivate:[authGuard]},
 ];
 @NgModule({
   declarations: [
@@ -71,6 +73,7 @@ const routes: Routes = [
     ListEditAssignmentComponent,
     ListDeleteAssignmentComponent,
     ConfirmDialogComponent,
+    GenerateAssignmentsComponent,
 
   ],
   imports: [
@@ -82,7 +85,7 @@ const routes: Routes = [
     MatToolbarModule,MatSidenavModule,MatSelectModule, MatListModule,MatCheckboxModule,
     RouterModule.forRoot(routes), MatSlideToggleModule,ReactiveFormsModule,HttpClientModule,MatTableModule,
     MatSortModule, MatPaginatorModule,MatStepperModule, MatExpansionModule,
-    NgOptimizedImage,MatButtonModule,MatDialogModule,MatSnackBarModule
+    NgOptimizedImage,MatButtonModule,MatDialogModule,MatSnackBarModule,
   ],
   providers: [AssignmentService],
   bootstrap: [AppComponent]

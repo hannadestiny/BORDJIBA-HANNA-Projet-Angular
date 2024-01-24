@@ -105,7 +105,8 @@ export class ListDeleteAssignmentComponent {
 
   openConfirmDialog(assignment: Assignment) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      width: '400px'
+      width: '400px',
+      data : { assignmentName: assignment.nomDevoir }
     });
 
     dialogRef.afterClosed().subscribe(result => {

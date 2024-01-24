@@ -60,7 +60,8 @@ export class AssignmentDetailComponent implements OnInit {
   openConfirmDialog() {
     if (this.assignmentTransmis) {
       const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-        width: '400px'
+        width: '400px',
+        data : { assignmentName: this.assignmentTransmis.nomDevoir }
       });
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
@@ -121,5 +122,18 @@ export class AssignmentDetailComponent implements OnInit {
   mirbel()
   {
     return this.assignmentTransmis.nomProf === "Mme. Mirbel";
+  }
+
+  arnault(){
+    return this.assignmentTransmis.nomProf === "M. Arnault";
+  }
+
+  remarque(){
+    if(this.assignmentTransmis.remarque === undefined){
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 }

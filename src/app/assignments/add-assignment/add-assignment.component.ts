@@ -56,6 +56,9 @@ export class AddAssignmentComponent {
       this.nomProf = "M. Lahire";
     }else if(this.matiere === "OIB"){
       this.nomProf = "Mme. Mirbel";
+    
+    } else if (this.matiere === "Communication") {
+      this.nomProf = "M. Arnault";
     }
 
     if (this.nomDevoir === "") {
