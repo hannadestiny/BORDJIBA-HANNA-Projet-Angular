@@ -1,51 +1,42 @@
-/* General styling for the toolbar */
 mat-toolbar {
-  background-color: #fc43a3; /* Light green color for the toolbar background */
-  color: #333; /* Dark text color for contrast */
-}
-
-/* Centering the title */
-mat-toolbar-row:first-child {
-  justify-content: center; /* Center the content of the first toolbar row */
+  background-color: #b476c6; 
+  color: #1a1ae4; 
 }
 .toolbar-title {
-  font-size: 24px; /* Makes the title larger */
-  font-weight: bold; /* Makes the font bold */
-  text-transform: uppercase; /* OPTIONAL: Makes all letters uppercase */
-  letter-spacing: 1px; /* OPTIONAL: Increases spacing between letters */
-  font-family: 'Arial', sans-serif; /* OPTIONAL: Changes the font family */
-  color: #fafafb; /* Color of the title text */
+  font-size: 24px; 
+  font-weight: bold;
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  font-family: 'Arial', sans-serif;
+  color: #0f0f11;
 }
+mat-toolbar-row:first-child {
+  justify-content: center;}
 
-/* Styling for the buttons */
-button.mat-button {
-  color: #333; /* Dark button text color for better visibility */
-  margin-right: 10px; /* Space between buttons */
-}
-
-/* Specific styling for the Menu and Home buttons */
-button.mat-button .mat-icon {
-  margin-right: 5px; /* Space between icon and text */
-}
-
-/* Styling for the Home and Login section */
 .main.container {
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px; 
 }
 
-/* Styling for the spacer to push elements to the sides */
+nav {
+  margin: 0 15px; 
+}
 .example-spacer {
-  flex: 1 1 auto;
+  flex-grow: 1; 
+}
+button.mat-button .mat-icon {
+  margin-right: 5px; 
 }
 
-/* Specific styling for the Login and Logout buttons */
-.LoginBtn button.mat-button, .LogoutBtn button.mat-button {
-  color: #333; /* Dark color for login/logout button text */
+
+.menu-button {
+  color: #1a1ae4;
+}
+.menu-button:hover {
+  color: #e71328;
 }
 
-/* Hover effects for buttons */
-button.mat-button:hover {
-  background-color: #8bc34a; /* Slightly darker shade of light green on hover */
-}
+
 

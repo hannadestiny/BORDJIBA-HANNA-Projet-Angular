@@ -51,13 +51,13 @@ const routes: Routes = [
   {path: 'home', component: ListAssignmentComponent},
   {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
   {path: 'list', component: ListAssignmentComponent},
-  {path: 'listdelete', component: ListDeleteAssignmentComponent},
-  {path: 'listedit', component: ListEditAssignmentComponent},
+  {path: 'listdelete', component: ListDeleteAssignmentComponent, canActivate:[authGuard]},
+  {path: 'listedit', component: ListEditAssignmentComponent, canActivate:[logGuard]},
   {path: 'assignment/:id', component: AssignmentDetailComponent},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
-  {path: 'log', component: LogAssignmentComponent},
-  {path: 'assignment/:id/delete', component: ListDeleteAssignmentComponent, canActivate:[authGuard]},
   {path: 'generate', component: GenerateAssignmentsComponent, canActivate:[authGuard]},
+  {path: 'log', component: LogAssignmentComponent},
+  
 ];
 @NgModule({
   declarations: [

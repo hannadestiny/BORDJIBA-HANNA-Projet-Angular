@@ -5,9 +5,9 @@
     <span class="toolbar-title">Application de gestion de devoirs </span>
   </mat-toolbar-row>
   <mat-toolbar-row>
-   
-          <button mat-button (click)="oponed()">
-            <mat-icon >
+    
+     <button mat-button  (click)="oponed()" class="menu-button">
+            <mat-icon  >
               menu
             </mat-icon> 
             Menu
@@ -26,8 +26,8 @@
     </main>
 
     <span class="example-spacer"></span>
-    <main class ="container">
-      <div class="LoginBtn">
+    <main >
+      <div>
         <nav>
         <a routerLink="/log">
           <button mat-button *ngIf="!isLogged()" (click)="fal()">
