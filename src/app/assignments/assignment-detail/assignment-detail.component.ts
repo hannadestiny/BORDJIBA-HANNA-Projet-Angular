@@ -128,6 +128,10 @@ export class AssignmentDetailComponent implements OnInit {
     return this.assignmentTransmis.nomProf === "M. Arnault";
   }
 
+  Galli(){
+    return this.assignmentTransmis.nomProf === "M. Galli";
+  }
+
   remarque(){
     if(this.assignmentTransmis.remarque === undefined){
       return false;

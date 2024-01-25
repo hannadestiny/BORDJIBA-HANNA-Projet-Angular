@@ -10,6 +10,10 @@
   background-color: #b476c6; 
   color: #fafafb;
 }
+
+.mat-sidenav{
+  height: 100%;
+}
 button.mat-flat-button {
   width: 100%; 
   text-transform: uppercase; 

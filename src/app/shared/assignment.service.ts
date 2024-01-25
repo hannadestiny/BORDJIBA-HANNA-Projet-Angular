@@ -99,14 +99,15 @@ export class AssignmentService {
   "Presentation 1","Presentation 2","Presentation 3","Presentation 4","Presentation 5","Presentation 6","Presentation 7","Presentation 8","Presentation 9","Presentation 10",
   "Jeu de rôle 1","Jeu de rôle 2","Jeu de rôle 3","Jeu de rôle 4","Jeu de rôle 5","Jeu de rôle 6","Jeu de rôle 7","Jeu de rôle 8","Jeu de rôle 9","jeu de rôle 10",
   "Recueil des exigences 1","Recueil des exigences 2","Recueil des exigences 3","Recueil des exigences 4","Recueil des exigences 5","Recueil des exigences 6","Recueil des exigences 7","Recueil des exigences 8","Recueil des exigences 9","Recueil des exigences 10",
+  "Projet de rechercehe SGBD 1","Projet de rechercehe SGBD 2","Projet de rechercehe SGBD 3","Projet de rechercehe SGBD 4","Projet de rechercehe SGBD 5","Projet de rechercehe SGBD 6","Projet de rechercehe SGBD 7","Projet de rechercehe SGBD 8","Projet de rechercehe SGBD 9","Projet de rechercehe SGBD 10",
 ];
     const randomDate = new Date(startDate.getTime() + randomTimeDifference); // You can randomize this further
-    const matieres = ["Angular", "Management", "Statistique", "Java", "OIB", "Communication"];
+    const matieres = ["Angular", "Management", "Statistique", "Java", "OIB", "Communication","Base de données"];
    
     const randomRendu = Math.random() < 0.5; // 50% chance
     const randomAuteur= ["Rania", "Claude", "Yassine", "Vanessa","Neila","Nour","Jose","Vincent","Richard","Laurent",
   "Joanna","Philippe","Charles","Paul","Marie","Jean","Pierre","Anne","Sophie","Marie","Julie","Juliette",
-  "Julien","Arthur","Emmanuella","Francesca"];
+  "Julien","Arthur","Emmanuella","Francesca","Destiny"];
 
     const randomRemarques = Math.random() < 0.5; 
 
@@ -124,7 +125,7 @@ export class AssignmentService {
     } else if (this.nom.includes("Recueil des exigences") || this.nom.includes("Outils de gestion")) {
       newAssignment.matiere = "OIB";
     } else if (this.nom.includes("TP") || this.nom.includes("Outils de développement")) {
-      const random1 = ["Angular", "Java"];
+      const random1 = ["Angular", "Java", "Base de données"];
       newAssignment.matiere = random1[Math.floor(Math.random() * random1.length)] // Assuming you want to default to "Java"
     } else if (this.nom.includes("Presentation") || this.nom.includes("Jeu de rôle")) {
       newAssignment.matiere = "Communication";
@@ -134,6 +135,8 @@ export class AssignmentService {
       newAssignment.matiere = "Java";
     } else if (this.nom.includes("Chatbot")) {
       newAssignment.matiere = "Management";
+    } else if (this.nom.includes("Projet de rechercehe SGBD")) {
+      newAssignment.matiere = "Base de données";
   }else {
       newAssignment.matiere = matieres[Math.floor(Math.random() * matieres.length)];
     }
@@ -203,6 +206,26 @@ export class AssignmentService {
         else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu > new Date()) {
           newAssignment.remarque = "Prenez le temps de bien rédiger le rendu et de le structurer, referencez vos sources";
         }
+      } else if (newAssignment.matiere === "Base do données") {
+        newAssignment.nomProf= "M. Galli";
+        if (newAssignment.rendu && newAssignment.note >= 15 && randomRemarques) {
+          newAssignment.remarque = "Très bon travail, le rapport est bien structuré et bien rédigé";
+        }
+        else if (newAssignment.rendu && newAssignment.note < 15 && newAssignment.note >10 && randomRemarques) {
+          newAssignment.remarque = "Bon rendu mais il manque des details et des propriétés";
+        } else if (newAssignment.rendu && newAssignment.note <= 10 && newAssignment.note >=5 && randomRemarques) {
+          newAssignment.remarque = "Le rendu ne contient pas toutes les informations demandées et mal structuré";
+        }
+        else if (newAssignment.rendu && newAssignment.note < 5 && randomRemarques) {
+          newAssignment.remarque = "Le rendu n'est pas complet, il manque beaucoup d'informations";
+        }
+        else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu < new Date()) {
+          newAssignment.remarque = "La date de rendu est dépassée";
+        }
+        else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu > new Date()) {
+          newAssignment.remarque = "Prenez le temps de bien rédiger le rendu et de le structurer, referencez vos sources";
+        }
+
 
       } else if (newAssignment.matiere === "Statistique") {
         newAssignment.nomProf = "M. Donati";

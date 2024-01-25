@@ -2,7 +2,8 @@
 
 <div>
   <h3>Liste des devoirs :</h3>
-  
+
+  <h4>Veuillez effectuer votre recherche de devoir :</h4>
   
   <mat-form-field>
     <mat-label>Nom du devoir</mat-label>
@@ -36,6 +37,7 @@
       <mat-option value="Statistique">Statistique</mat-option>
       <mat-option value="OIB">OIB</mat-option>
       <mat-option value="Communication">Communication</mat-option>
+      <mat-option value="Base de données">Base de données</mat-option>
     </mat-select>
   </mat-form-field>
   
@@ -86,8 +88,7 @@
     <tr mat-row *matRowDef="let assignment; columns: displayedColumns;"  [routerLink]="['/assignment',assignment.id]"></tr>
   </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-    showFirstLastButtons
-    aria-label="Select page of periodic assignments">
+    showFirstLastButtons>
     </mat-paginator>
   </div>
   
