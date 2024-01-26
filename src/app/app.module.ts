@@ -43,6 +43,8 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { GenerateAssignmentsComponent } from './assignments/generate-assignments/generate-assignments.component';
+import { ListProfsComponent } from './list-profs/list-profs.component';
+import { ConfirmRenduComponent } from './confirm-rendu/confirm-rendu.component';
 
 
 
@@ -52,7 +54,7 @@ const routes: Routes = [
   {path: 'add', component: AddAssignmentComponent, canActivate:[logGuard]},
   {path: 'list', component: ListAssignmentComponent},
   {path: 'listdelete', component: ListDeleteAssignmentComponent, canActivate:[authGuard]},
-  {path: 'listedit', component: ListEditAssignmentComponent, canActivate:[logGuard]},
+  {path: 'listedit', component: ListEditAssignmentComponent, canActivate:[authGuard]},
   {path: 'assignment/:id', component: AssignmentDetailComponent},
   {path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate:[logGuard]},
   {path: 'generate', component: GenerateAssignmentsComponent, canActivate:[authGuard]},
@@ -74,6 +76,8 @@ const routes: Routes = [
     ListDeleteAssignmentComponent,
     ConfirmDialogComponent,
     GenerateAssignmentsComponent,
+    ListProfsComponent,
+    ConfirmRenduComponent,
 
   ],
   imports: [

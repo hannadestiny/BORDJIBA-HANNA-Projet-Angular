@@ -56,6 +56,12 @@ export class AssignmentDetailComponent implements OnInit {
     
   } 
 
+  rendu()
+  {
+    if (this.assignmentTransmis.note === undefined)
+      return false;
+    else return true
+  }
 
   openConfirmDialog() {
     if (this.assignmentTransmis) {
@@ -131,6 +137,8 @@ export class AssignmentDetailComponent implements OnInit {
   Galli(){
     return this.assignmentTransmis.nomProf === "M. Galli";
   }
+
+  
 
   remarque(){
     if(this.assignmentTransmis.remarque === undefined){

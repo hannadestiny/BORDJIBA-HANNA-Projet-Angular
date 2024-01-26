@@ -4,7 +4,7 @@
     
         <a button mat-flat-button [routerLink]="['/add']" (click)="fal()"  [disabled]="!islogged()">Ajouter un devoir</a>
      
-        <a button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!islogged()">Modification d'un devoir</a>
+        <a button mat-flat-button [routerLink]="['/listedit']" (click)="fal()"  [disabled]="!isAdmin()">Noter/Rendre un devoir</a>
           
         <a button mat-flat-button [routerLink]="['/listdelete']"  (click)="fal()" [disabled]="!isAdmin()" >Suppression d'un devoir</a>
         

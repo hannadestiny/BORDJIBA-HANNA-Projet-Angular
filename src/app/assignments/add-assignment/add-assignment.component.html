@@ -71,7 +71,7 @@
                placeholder="Nom de l'auteur"
                [(ngModel)]="nomAuteur"
                name="nomAuteur"
-                required
+               required
         />
       </mat-form-field>
       <div>
@@ -80,23 +80,20 @@
       </div>
   
   </mat-step>
-
-    <mat-step [stepControl]="sixthFormGroup" label="Remarques" optional>
-      <ng-template matStepLabel>Remarques</ng-template>
-      <mat-form-field>
-        <mat-label>Remarques</mat-label>
-        <input matInput type="text"  placeholder="Remarques"
-        [(ngModel)]="remarque"
-        name="remarque"
-        />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button matStepperNext>Suivant</button>
-      </div>
-    </mat-step>
   
-    <mat-step *ngIf="isAdmin()" [stepControl]="fifthFormGroup" label="Status" optional>
+   
+    <mat-step  *ngIf="isAdmin()" [stepControl]="fifthFormGroup" label="Rendu" >
+      
+        <mat-checkbox  [(ngModel)]="isChecked" name="check">Check la box si l'assignment est rendu</mat-checkbox>
+    
+        <div>
+          <button mat-button matStepperPrevious>Retour</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+    </mat-step>
+    
+
+    <mat-step *ngIf="isAdmin() && isChecked" [stepControl]="sixthFormGroup" label="Status" optional>
       <ng-template matStepLabel>Note</ng-template>
         <mat-form-field>
           <mat-label> Note : </mat-label>
@@ -111,6 +108,21 @@
                     name="note"
           />
         </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Retour</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+    </mat-step>
+
+    <mat-step [stepControl]="seventhFormGroup" label="Remarques" optional>
+      <ng-template matStepLabel>Remarques</ng-template>
+      <mat-form-field>
+        <mat-label>Remarques</mat-label>
+        <input matInput type="text"  placeholder="Remarques"
+        [(ngModel)]="remarque"
+        name="remarque"
+        />
+      </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Retour</button>
         <button mat-button matStepperNext>Suivant</button>

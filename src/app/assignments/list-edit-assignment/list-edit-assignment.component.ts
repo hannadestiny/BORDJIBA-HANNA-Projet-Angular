@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { MatSort, Sort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmRenduComponent } from 'src/app/confirm-rendu/confirm-rendu.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-list-edit-assignment',
@@ -18,7 +21,7 @@ export class ListEditAssignmentComponent {
   mat: string='tous';
   filterValue: string = '';
 
-  constructor (private assignmentsService:AssignmentService, private rout:Router ){
+  constructor (private assignmentsService:AssignmentService, private rout:Router,  public dialog: MatDialog,private _snackBar: MatSnackBar ){
     this.assignmentsService.oponed = false;
     this.dataSource = new MatTableDataSource(this.assignments);
   }
@@ -37,7 +40,7 @@ export class ListEditAssignmentComponent {
   getAssignments()
   {
 
-    this.assignmentsService.getAssignments()
+    this.assignmentsService.getNonRenduAssignments()
     .subscribe((assignments) => {
       this.assignments=assignments;
       this.po=this.assignments  ;
@@ -66,6 +69,37 @@ export class ListEditAssignmentComponent {
       }
     });
   }
+
+  onUpdate(assignment: Assignment){
+    
+    this.assignmentsService.updateAssignment(assignment!).subscribe(message => {console.log(message);
+      this._snackBar.open("Le devoir "+assignment.nomDevoir + " a été noté et rendu" , "Fermer", {
+        duration: 2000,
+      });  
+      this.getAssignments();this.rout.navigate(['/listedit'])});
+    
+  } 
+
+  openConfirmDialog(assignment: Assignment) {
+    const dialogRef = this.dialog.open(ConfirmRenduComponent, {
+      width: '400px',
+      data : { assignmentName: assignment.nomDevoir }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        assignment.note = result.note;
+        if (assignment.note >= 0 && assignment.note <= 20) {
+          assignment.rendu = true;
+        } else {
+          assignment.rendu = false;
+        }
+        this.onUpdate(assignment);
+      }
+    });
+    
+  }
+
 
   applyGlobalFilter() {
     this.dataSource.filterPredicate = (data: Assignment, filter: string): boolean => {
@@ -102,7 +136,6 @@ export class ListEditAssignmentComponent {
   applyFilter2(event: Event) {
     this.applyGlobalFilter();
   }
-   
   
 }
   

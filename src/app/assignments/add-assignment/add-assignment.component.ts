@@ -27,7 +27,7 @@ export class AddAssignmentComponent {
   note: any;
   rendu: boolean = false;
 
-  
+  isChecked : boolean | undefined; 
   
   
     constructor(private assignmentService : AssignmentService,
@@ -74,11 +74,14 @@ export class AddAssignmentComponent {
       alert("Vous devez entrer un nom d'auteur");
       return;
     }
-
-    if (this.note !== undefined && this.note >= 0 && this.note <= 20 && this.note !== null && !isNaN(this.note) ) {
+   
+  
+    if (this.isChecked)  {
       this.rendu = true;
     } else {
       this.rendu= false;}
+
+   
     
     event.preventDefault();
     const newAssignment = new Assignment();
@@ -119,6 +122,9 @@ export class AddAssignmentComponent {
     secondCtrl: ['', Validators.required],
   });
   sixthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  seventhFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
   isLinear = false;

@@ -14,8 +14,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class EditAssignmentComponent {
   assignment :Assignment | any;
 
-  titre = "Formulaire d'ajout de devoir";
+  titre = "Formulaire de modification de devoir";
   assignmentForm: any;
+
+  isChecked : boolean | undefined;
   
   
 
@@ -39,11 +41,11 @@ export class EditAssignmentComponent {
       matiere: new FormControl(),
       dateDeRendu: new FormControl(),
       auteur: new FormControl(),
-      remarque: new FormControl(),
       note: new FormControl(),
+      remarque: new FormControl(),
+      
     });
 
-    // Set the initial form values
     this.assignmentForm.patchValue(this.assignment);
   
   }
@@ -75,23 +77,22 @@ export class EditAssignmentComponent {
       this.assignment.nomProf = "M. Galli";
     }
 
-    if (this.assignment.note !== undefined && this.assignment.note >= 0 && this.assignment.note <= 20 && this.assignment.note !== null && !isNaN(this.assignment.note) ) {
+    if (this.isChecked ) {
       this.assignment.rendu = true;
-    } else {
-      this.assignment.rendu= false;}
+    }
       
     this.assignmentService.updateAssignment(this.assignment).
     subscribe(message => {console.log(message);
       this._snackBar.open("Le devoir "+this.assignment.nomDevoir + " a été modifié" , "Fermer", {
         duration: 2000,
       });  
-      this.router.navigate(['listedit'])});
+      this.router.navigate(['/assignment',this.assignment.id])});
     
   }
 
 
   retour(){
-    this.router.navigate(['/listedit']);
+    this.router.navigate(['/assignment',this.assignment.id]);
   }
 
   firstFormGroup = this._formBuilder.group({
@@ -110,6 +111,9 @@ export class EditAssignmentComponent {
     secondCtrl: ['', Validators.required],
   });
   sixthFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  seventhFormGroup = this._formBuilder.group({
     secondCtrl: ['', Validators.required],
   });
   isLinear = false;

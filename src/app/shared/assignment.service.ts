@@ -23,6 +23,13 @@ export class AssignmentService {
       );
   }
 
+  getNonRenduAssignments(): Observable<Assignment[]> {
+    return this.getAssignments().pipe(
+      map(assignments => assignments.filter(assignment => !assignment.note)),
+      catchError(this.handleError<Assignment[]>('getNonRenduAssignments', []))
+    );
+  }
+
   addAssignment(assignment: Assignment): Observable<Assignment> {
     return this.http.post<Assignment>(this.url, assignment)
       .pipe(
@@ -89,6 +96,7 @@ export class AssignmentService {
   "QCM 1","QCM 2","QCM 3","QCM 4","QCM 5","QCM 6","QCM 7","QCM 8","QCM 9","QCM 10",
   "Wims 1","Wims 2","Wims 3","Wims 4","Wims 5","Wims 6","Wims 7","Wims 8","Wims 9","Wims 10",
   "Web 1","Web 2","Web 3","Web 4","Web 5","Web 6","Web 7","Web 8","Web 9","Web 10",
+  "B-Arbre 1","B-Arbre 2","B-Arbre 3","B-Arbre 4","B-Arbre 5","B-Arbre 6","B-Arbre 7","B-Arbre 8","B-Arbre 9","B-Arbre 10",
   "Chatbot 1","Chatbot 2","Chatbot 3","Chatbot 4","Chatbot 5","Chatbot 6","Chatbot 7","Chatbot 8","Chatbot 9","Chatbot 10",
   "Outils de développement 1","Outils de développement 2","Outils de développement 3","Outils de développement 4","Outils de développement 5","Outils de développement 6","Outils de développement 7","Outils de développement 8","Outils de développement 9","Outils de développement 10",
   "Mini-projet 1","Mini-projet 2","Mini-projet 3","Mini-projet 4","Mini-projet 5","Mini-projet 6","Mini-projet 7","Mini-projet 8","Mini-projet 9","Mini-projet 10",
@@ -101,14 +109,14 @@ export class AssignmentService {
   "Recueil des exigences 1","Recueil des exigences 2","Recueil des exigences 3","Recueil des exigences 4","Recueil des exigences 5","Recueil des exigences 6","Recueil des exigences 7","Recueil des exigences 8","Recueil des exigences 9","Recueil des exigences 10",
   "Projet de rechercehe SGBD 1","Projet de rechercehe SGBD 2","Projet de rechercehe SGBD 3","Projet de rechercehe SGBD 4","Projet de rechercehe SGBD 5","Projet de rechercehe SGBD 6","Projet de rechercehe SGBD 7","Projet de rechercehe SGBD 8","Projet de rechercehe SGBD 9","Projet de rechercehe SGBD 10",
 ];
-    const randomDate = new Date(startDate.getTime() + randomTimeDifference); // You can randomize this further
+    const randomDate = new Date(startDate.getTime() + randomTimeDifference); 
     const matieres = ["Angular", "Management", "Statistique", "Java", "OIB", "Communication","Base de données"];
-   
-    const randomRendu = Math.random() < 0.5; // 50% chance
+    const randomRendu = Math.random() < 0.55; 
     const randomAuteur= ["Rania", "Claude", "Yassine", "Vanessa","Neila","Nour","Jose","Vincent","Richard","Laurent",
   "Joanna","Philippe","Charles","Paul","Marie","Jean","Pierre","Anne","Sophie","Marie","Julie","Juliette",
-  "Julien","Arthur","Emmanuella","Francesca","Destiny"];
+  "Julien","Arthur","Emmanuella","Francesca",];
 
+    const randomNote = Math.random() < 0.5;
     const randomRemarques = Math.random() < 0.5; 
 
   
@@ -121,12 +129,12 @@ export class AssignmentService {
       newAssignment.matiere = "Statistique";
     } else if (this.nom.includes("Etude de cas") || this.nom.includes("Rapport d'activité")) {
       const random = ["Management", "OIB"];
-      newAssignment.matiere = random[Math.floor(Math.random() * random.length)] // Assuming you want to default to "Management"
+      newAssignment.matiere = random[Math.floor(Math.random() * random.length)]
     } else if (this.nom.includes("Recueil des exigences") || this.nom.includes("Outils de gestion")) {
       newAssignment.matiere = "OIB";
     } else if (this.nom.includes("TP") || this.nom.includes("Outils de développement")) {
       const random1 = ["Angular", "Java", "Base de données"];
-      newAssignment.matiere = random1[Math.floor(Math.random() * random1.length)] // Assuming you want to default to "Java"
+      newAssignment.matiere = random1[Math.floor(Math.random() * random1.length)] 
     } else if (this.nom.includes("Presentation") || this.nom.includes("Jeu de rôle")) {
       newAssignment.matiere = "Communication";
     } else if (this.nom.includes("Web")) {
@@ -135,7 +143,7 @@ export class AssignmentService {
       newAssignment.matiere = "Java";
     } else if (this.nom.includes("Chatbot")) {
       newAssignment.matiere = "Management";
-    } else if (this.nom.includes("Projet de rechercehe SGBD")) {
+    } else if (this.nom.includes("Projet de rechercehe SGBD" || this.nom.includes("B-Arbre"))) {
       newAssignment.matiere = "Base de données";
   }else {
       newAssignment.matiere = matieres[Math.floor(Math.random() * matieres.length)];
@@ -143,7 +151,7 @@ export class AssignmentService {
   
     newAssignment.auteur = randomAuteur[Math.floor(Math.random() * randomAuteur.length)];
     newAssignment.rendu = randomRendu
-    if (randomRendu) {
+    if (randomRendu && randomNote) {
       newAssignment.note = Math.floor(Math.random() * 21); 
     }
 
@@ -286,6 +294,26 @@ export class AssignmentService {
       }
       else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu > new Date()) {
         newAssignment.remarque = "Prenez le temps de répéter votre présentation et de vous entrainer";
+      }
+    }
+    else if (newAssignment.matiere === "Base de données") {
+      newAssignment.nomProf = "M. Galli";
+      if (newAssignment.rendu && newAssignment.note >= 15 && randomRemarques) {
+        newAssignment.remarque = "Très bon travail";
+      }
+      else if (newAssignment.rendu && newAssignment.note < 15 && newAssignment.note >10 && randomRemarques) {
+        newAssignment.remarque = "Bon travail";
+      } else if (newAssignment.rendu && newAssignment.note <= 10 && newAssignment.note >=5 && randomRemarques) {
+        newAssignment.remarque = "Il manque des details";
+      }
+      else if (newAssignment.rendu && newAssignment.note < 5 && randomRemarques) {
+        newAssignment.remarque = "Rendu hors sujet ";
+      }
+      else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu < new Date()) {
+        newAssignment.remarque = "La date de rendu est dépassée";
+      }
+      else if (!newAssignment.rendu && randomRemarques && newAssignment.dateDeRendu > new Date()) {
+        newAssignment.remarque = "Utilisez le cours et les exemples";
       }
     }
     

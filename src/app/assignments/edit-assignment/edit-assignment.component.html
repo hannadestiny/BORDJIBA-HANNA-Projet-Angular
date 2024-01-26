@@ -85,24 +85,17 @@
   
   </mat-step>
 
-    <mat-step [stepControl]="sixthFormGroup" label="Remarques">
-      <ng-template matStepLabel>Remarques</ng-template>
-      <mat-form-field>
-        <mat-label>Remarques</mat-label>
-        <input matInput type="text"  placeholder="Remarques"
-        [formControl]="assignmentForm.get('remarque')"
-        [(ngModel)]="assignment.remarque"
-        
-        name="remarque"
-        />
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button matStepperNext>Suivant</button>
-      </div>
-    </mat-step>
+  <mat-step  *ngIf="isAdmin() && !assignment.rendu" [stepControl]="fifthFormGroup" label="Rendu" >
+      
+    <mat-checkbox  [(ngModel)]="isChecked" name="check">Check la box si l'assignment est rendu </mat-checkbox>
+
+    <div>
+      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button matStepperNext>Suivant</button>
+    </div>
+  </mat-step>
   
-    <mat-step *ngIf="isAdmin()" [stepControl]="fifthFormGroup" label="Status">
+    <mat-step *ngIf="isAdmin() && (isChecked || assignment.rendu) " [stepControl]="sixthFormGroup" label="Status">
       <ng-template matStepLabel>Note</ng-template>
         <mat-form-field>
           <mat-label> Note : </mat-label>
@@ -124,12 +117,29 @@
       </div>
     </mat-step>
 
-    <mat-step>
+    <mat-step [stepControl]="seventhFormGroup" label="Remarques">
+          <ng-template matStepLabel>Remarques</ng-template>
+          <mat-form-field>
+            <mat-label>Remarques</mat-label>
+            <input matInput type="text"  placeholder="Remarques"
+            [formControl]="assignmentForm.get('remarque')"
+            [(ngModel)]="assignment.remarque"
+            
+            name="remarque"
+            />
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
+          </div>
+        </mat-step>
+      <mat-step>
+
       <ng-template matStepLabel>Modifier le devoir</ng-template>
       <p>Modifier ce devoir.</p>
       <div>
         <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button  [disabled]="!assignmentForm.dirty"
+        <button mat-button  [disabled]="!assignmentForm.dirty && !isChecked "
          (click)="onSave($event)" >Modifier</button>
       </div>
     </mat-step>
