@@ -36,11 +36,17 @@ export class LogAssignmentComponent {
       }
       else{
         console.log(" connecte");
-        this._snackBar.open("Bienvenue "+this.form.value.Username, "OK", {
+        if(this.authService.isLoggedAdmin){
+        this._snackBar.open("Bienvenue "+this.form.value.Username+", vous êtes admin", "OK", {
           duration: 2000,
         });
       }
-
+      else{
+        this._snackBar.open("Bienvenue "+this.form.value.Username+", vous êtes utilisateur", "OK", {
+          duration: 2000,
+        });
+      }
+    }
       this.router.navigate(['home']);
       
     }

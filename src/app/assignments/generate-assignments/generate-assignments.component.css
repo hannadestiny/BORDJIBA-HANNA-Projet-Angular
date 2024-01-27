@@ -15,7 +15,7 @@
 }
 
 .generate-btn, .back-btn {
-    background-color: #007bff;
+    background-color: #b476c6;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -30,12 +30,12 @@
 }
 
 .generate-btn:hover, .back-btn:hover {
-    background-color: #0056b3;
+    background-color: #8b15b3;
     color: white;
 }
 
 h1 {
+    color: #8b15b3;
     text-align: center;
-    color: #333;
-    font-size: 24px;
+    margin-bottom: 20px;
 }

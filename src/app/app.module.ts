@@ -43,7 +43,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { GenerateAssignmentsComponent } from './assignments/generate-assignments/generate-assignments.component';
-import { ListProfsComponent } from './list-profs/list-profs.component';
 import { ConfirmRenduComponent } from './confirm-rendu/confirm-rendu.component';
 
 
@@ -76,7 +75,6 @@ const routes: Routes = [
     ListDeleteAssignmentComponent,
     ConfirmDialogComponent,
     GenerateAssignmentsComponent,
-    ListProfsComponent,
     ConfirmRenduComponent,
 
   ],

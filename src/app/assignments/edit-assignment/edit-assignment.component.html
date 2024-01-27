@@ -1,10 +1,20 @@
 
-<h1>{{ titre }}</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulaire de moddification d'un devoir</title>
+ 
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
 
-<button mat-flat-button color="primary" (click)="retour()" >
-  Retour</button>
+  <h1>{{ titre }}</h1>
 
-
+  <button mat-flat-button color="primary" (click)="retour()">
+      Annuler
+  </button>
+  <br><br>
 
   <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
     <mat-step [stepControl]="firstFormGroup">
@@ -139,9 +149,10 @@
       <p>Modifier ce devoir.</p>
       <div>
         <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button  [disabled]="!assignmentForm.dirty && !isChecked "
+        <button mat-button class="exemple-focus" [disabled]="!assignmentForm.dirty && !isChecked "
          (click)="onSave($event)" >Modifier</button>
       </div>
     </mat-step>
   </mat-stepper>
 
+</body>

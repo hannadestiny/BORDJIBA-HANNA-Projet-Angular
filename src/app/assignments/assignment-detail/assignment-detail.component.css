@@ -18,8 +18,8 @@ mat-card {
 }
 
 mat-card-title {
-    font-size: 1.2em;
-    color: #333;
+    font-size: 1.5em;
+    color: #5C007A;
    
 }
 
@@ -35,8 +35,20 @@ mat-card-content {
 img {
     border-radius: 8px;
     margin-top: 10px;
-    float: right;
+   
 }
+
+/* Class for the text container */
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers text lines */
+    width: 100%; /* Ensures the container takes the full width */
+    margin-bottom: 20px; /* Space below the text container */
+}
+
+
 
 /* Revised styles for smaller buttons */
 button[mat-flat-button] {
