@@ -68,7 +68,7 @@ Peu importe le rôle avec lequel vous vous connectez, un message contextuel (sna
 
 <br>
 <br>
-![IMG_4711](https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/683dcc29-34ac-49a0-ac11-1bea7c7d7633)
+<img width="904" alt="5" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/c9e2e221-0755-406a-a2b4-13b7acc05cd7">
 <br>
 <br>
 
