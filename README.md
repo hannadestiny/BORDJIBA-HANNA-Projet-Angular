@@ -19,6 +19,10 @@ Après avoir téléchargé le code, il est nécessaire d'ouvrir deux terminaux p
 
 <br>
 
+<br>
+
+### 2. Vision visiteur
+
 Au premier coup d'œil, vous observerez un tableau de devoirs accompagné d'une barre d'outils (toolbar) offrant les options suivantes : menu, home et sign in. Lorsque vous cliquez sur 'menu', un volet latéral (sidenav) s'ouvre, révélant différents boutons : liste des devoirs, ajouter un devoir, noter/restituer un devoir, supprimer un devoir, et générer un devoir. Vous remarquerez que seul le premier bouton est actif, tandis que les autres restent inaccessibles et apparaissent en grisé.
 
 <br> 
@@ -64,3 +68,8 @@ Peu importe le rôle avec lequel vous vous connectez, un message contextuel (sna
 <br>
 
 ![IMG_4711](https://github.com/M1-MIAGE-23-24/BORDJIBA-HANNA-Projet-Angular/assets/147160467/11277e4a-206f-49fa-8cee-da95f8bcb234)
+
+<br>
+<br>
+
+### 3. Vision user
