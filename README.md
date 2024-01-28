@@ -63,7 +63,7 @@ Peu importe le rôle avec lequel vous vous connectez, un message contextuel (sna
 <img width="973" alt="5" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/88874f4b-bb75-4884-9774-3e41e5518ef2">
 <br>
 
-Une fois qu'on effectue une connection réussite, le bouton login de la toolbar se transforme en logout directement.
+Après une connexion réussie, le bouton "Login" situé dans la barre d'outils se transforme automatiquement en "Logout". Ce bouton reste ainsi tant que l'utilisateur est connecté. Pour se déconnecter, il suffit de cliquer sur ce bouton "Logout". Un message apparaît alors pour confirmer la déconnexion, et le bouton reprend sa fonction initiale de "Login".
 
 ### 4. Vision user
 
@@ -119,8 +119,28 @@ Un snackbar validera la modification effectuée.
 <img width="1680" alt="11" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/bdb08d82-1aca-4bc1-86ee-3e7e6ca75516">
 <br>
 
+#### 5.4. Suppression d'un devoir
 
+Cette fonctionnalité permet à un administrateur de supprimer un devoir par deux méthodes distinctes : soit directement depuis la page de détails du devoir, où un bouton de suppression est présent, soit via une option de suppression de devoir accessible depuis la barre latérale. Les deux méthodes conduisent au même résultat.
 
+En utilisant la première méthode, l'administrateur sait d'emblée quel devoir il souhaite supprimer. Avec la seconde méthode, un tableau listant tous les devoirs s'affiche, et l'administrateur n'a qu'à sélectionner le devoir à supprimer.
 
+Dans les deux cas, après avoir sélectionné le devoir à supprimer, une fenêtre de confirmation apparaît, demandant à l'administrateur s'il souhaite réellement procéder à la suppression du devoir choisi.
+<br>
 
+<img width="1680" alt="12" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/c4c07dcb-fe93-41f7-9d81-b0c91e20370f">
+<br>
 
+En cliquant sur "Supprimer", le devoir est immédiatement retiré de la liste des devoirs, et un message de confirmation s'affiche pour indiquer que le devoir sélectionné a été supprimé avec succès. Si vous utilisez la première méthode (suppression depuis la page de détails du devoir), vous serez redirigé vers la liste complète des devoirs après la suppression. Cependant, si vous utilisez la seconde méthode (suppression via la liste des devoirs), vous resterez sur la page de suppression des devoirs. Cette dernière option est particulièrement utile si vous avez besoin de supprimer plusieurs devoirs consécutivement, car elle évite de revenir à chaque fois aux détails du devoir, permettant ainsi de gagner du temps.
+
+#### 5.5. Générer des devoirs aléatoire
+
+La dernière fonctionnalité est la génération automatique de devoirs. En cliquant sur le bouton situé dans la barre latérale, vous accédez à un formulaire vous permettant de spécifier le nombre de devoirs que vous souhaitez générer automatiquement.
+
+<br>
+<img width="1680" alt="13" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/9ca9bfb8-29dc-4169-bcfd-4711e65820a7">
+<br>
+
+Après avoir saisi le nombre souhaité de devoirs à générer, il suffit de cliquer sur le bouton "Générer". Immédiatement après, le système ajoutera le nombre demandé de devoirs à la fin de la liste existante. Une fois la génération terminée, vous serez redirigé vers la liste complète des devoirs, où un message de confirmation s'affichera pour valider l'ajout des nouveaux devoirs.
+
+### 6. Video qui montre toutes les fonctionnalités présentées 
