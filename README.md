@@ -18,7 +18,7 @@ Une fois le code téléchargé, procédez à l'ouverture de deux terminaux pour 
 
 Après avoir téléchargé le code, il est nécessaire d'ouvrir deux terminaux pour mettre en marche le projet :
 
-1. Ouvrez un premier terminal intégré au dossier `front-end`. Exécutez d'abord la commande `npm install` pour télécharger toutes les dépendances requises.
+1. Ouvrez un premier terminal intégré au dossier `app`. Exécutez d'abord la commande `npm install` pour télécharger toutes les dépendances requises.
 2. Dans le même terminal, lancez ensuite la commande `ng serve`. Cela démarrera le front-end du projet.
 3. Puis, ouvrez un second terminal intégré au dossier `api`. Exécutez la commande `npm run start` pour établir la connexion avec le back-end du projet, en particulier avec la base de données MongoDB.
 4. Une fois les deux terminaux opérationnels, accédez à l'adresse `http://localhost:4200` dans votre navigateur pour visualiser le projet.
