@@ -37,12 +37,12 @@ export class LogAssignmentComponent {
       else{
         console.log(" connecte");
         if(this.authService.isAdmmin()){
-        this._snackBar.open("Bienvenue "+this.form.value.Username+", vous êtes admin", "OK", {
+        this._snackBar.open("Bienvenue "+this.form.value.Username+" vous êtes admin", "OK", {
           duration: 2000,
         });
       }
       else{
-        this._snackBar.open("Bienvenue "+this.form.value.Username+", vous êtes utilisateur", "OK", {
+        this._snackBar.open("Bienvenue "+this.form.value.Username+" vous êtes utilisateur", "OK", {
           duration: 2000,
         });
       }
@@ -51,3 +51,4 @@ export class LogAssignmentComponent {
       
     }
 }
+
