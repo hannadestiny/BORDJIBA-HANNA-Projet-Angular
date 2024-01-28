@@ -144,3 +144,9 @@ La dernière fonctionnalité est la génération automatique de devoirs. En cliq
 Après avoir saisi le nombre souhaité de devoirs à générer, il suffit de cliquer sur le bouton "Générer". Immédiatement après, le système ajoutera le nombre demandé de devoirs à la fin de la liste existante. Une fois la génération terminée, vous serez redirigé vers la liste complète des devoirs, où un message de confirmation s'affichera pour valider l'ajout des nouveaux devoirs.
 
 ### 6. Video qui montre toutes les fonctionnalités présentées 
+
+
+
+https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/4cdd84dc-2dfb-44c9-b339-4cdb7dafce9d
+
+
