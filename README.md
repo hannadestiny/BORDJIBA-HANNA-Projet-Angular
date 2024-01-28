@@ -8,10 +8,10 @@ Ce README contiendra une présentation du fonctionnement du projet et de ses fon
 Le back end est hébergé sur render.com (https://back-end-projet-angular.onrender.com/api/assignments)
 et le front end est hébergé sur netlify.com (https://joyful-bavarois-b625c3.netlify.app)
 
-On a essayé de faire le déploiment du back et du front end, tous les 2 sur render.com mais on a rencontré un problème quand on a voulu executer le front end sur render. Du coup on a fait recours a hébergé le front sur netlify.com tout en laissant le back hébergé sur render.
+On a essayé de faire le déploiment du back et du front end, tous les 2 sur render.com mais on a rencontré un problème quand on a voulu executer le front end sur render. Du coup on a fait recours a hébergé le front sur netlify.com tout en laissant le back hébergé sur render. Ceci aussi entrain que des fois faut attendre un petit moment pour que le back end se connect au front et qu'ils affichent les devoirs qui se trouvent dans la base.
 
-L'application est accessible pendant un mois sur le lien https://joyful-bavarois-b625c3.netlify.app
 
+L'application est accessible pendant un mois sur le lien https://joyful-bavarois-b625c3.netlify.app . 
 
 ### 1.2. Lancement du projet sur machine locale
 Une fois le code téléchargé, procédez à l'ouverture de deux terminaux pour démarrer le projet :
