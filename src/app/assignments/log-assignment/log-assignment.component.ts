@@ -36,7 +36,7 @@ export class LogAssignmentComponent {
       }
       else{
         console.log(" connecte");
-        if(this.authService.isLoggedAdmin){
+        if(this.authService.isAdmmin()){
         this._snackBar.open("Bienvenue "+this.form.value.Username+", vous êtes admin", "OK", {
           duration: 2000,
         });
