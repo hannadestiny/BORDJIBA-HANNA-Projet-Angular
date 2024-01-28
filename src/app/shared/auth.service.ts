@@ -27,17 +27,18 @@ export class AuthService {
     },
     {
       id:3,
-      Username: 'Mickael',
-      Password: '456',
+      Username: 'admin',
+      Password: 'admin',
       fonction: 'admin',
     },
     {
       id:4,
-      Username: 'Marie',
-      Password: 'def',
+      Username: 'user',
+      Password: 'user',
       fonction: 'user',
     }
   ]
+
 
   idd : number | undefined;
  
