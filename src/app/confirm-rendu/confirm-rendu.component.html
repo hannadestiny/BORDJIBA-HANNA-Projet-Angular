@@ -13,8 +13,7 @@
              placeholder="Note"
              [(ngModel)]="data.note" />
     </div>
-    <button mat-button [mat-dialog-close]="data" class="delete-button button-common" *ngIf="data.note">Noter</button>
+    <button mat-button [mat-dialog-close]="data" class="delete-button button-common" *ngIf="data.note >= 0 && data.note <=20 && data.note">Noter</button>
     <button mat-button mat-dialog-close class="cancel-button button-common">Annuler</button>
   </mat-dialog-actions>
   
-
