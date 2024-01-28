@@ -9,10 +9,11 @@ Le back end est hébergé sur render.com (https://back-end-projet-angular.onrend
 et le front end est hébergé sur netlify.com (https://joyful-bavarois-b625c3.netlify.app)
 
 On a essayé de faire le déploiment du back et du front end, tous les 2 sur render.com mais on a rencontré un problème quand on a voulu executer le front end sur render. Du coup on a fait recours a hébergé le front sur netlify.com tout en laissant le back hébergé sur render.
+
 L'application est accessible pendant un mois sur le lien https://joyful-bavarois-b625c3.netlify.app
 
 
-### 1. Lancement du projet local
+### 1. Lancement du projet sur machine locale
 Une fois le code téléchargé, procédez à l'ouverture de deux terminaux pour démarrer le projet :
 
 Après avoir téléchargé le code, il est nécessaire d'ouvrir deux terminaux pour mettre en marche le projet :
@@ -22,6 +23,8 @@ Après avoir téléchargé le code, il est nécessaire d'ouvrir deux terminaux p
 3. Puis, ouvrez un second terminal intégré au dossier `api`. Exécutez la commande `npm run start` pour établir la connexion avec le back-end du projet, en particulier avec la base de données MongoDB.
 4. Une fois les deux terminaux opérationnels, accédez à l'adresse `http://localhost:4200` dans votre navigateur pour visualiser le projet.
 <br>
+
+## Tout ce qui suit est le fonctionnement de l'appli lancé sur machine locale ou la version hébergé
 
 ### 2. Vision visiteur
 
