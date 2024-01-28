@@ -68,6 +68,57 @@ Une fois qu'on effectue une connection réussite, le bouton login de la toolbar 
 ### 4. Vision user
 
 Une fois connecté en tant qu'utilisateur standard, les fonctionnalités de base restent accessibles. En plus, deux nouvelles options sont disponibles: un formulaire pour ajouter un devoir, accessible depuis la barre latérale, et un formulaire pour modifier un devoir, accessible depuis la page de détails du devoir concerné.
+<br>
+<img width="1680" alt="6" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/6833593f-5940-4f05-91de-63ab259d621b">
+<br>
+
+#### 4.1. Le formulaire d'ajout user
+
+Ce formulaire se présente sous la forme d'un processus par étapes, certaines étant obligatoires et d'autres optionnelles. Il est impératif de renseigner le nom du devoir, de choisir une matière parmi celles proposées (chaque matière étant associée à son enseignant respectif), de fixer la date de rendu et d'indiquer le nom de l'auteur. L'utilisateur a également la possibilité d'ajouter un commentaire s'il le souhaite. Si tous les champs requis ne sont pas correctement remplis, il ne sera pas possible d'ajouter le devoir et une alerte apparaîtra pour signaler la nécessité de compléter les champs manquants. Il est important de noter qu'un utilisateur ne peut pas définir le statut du devoir ; ainsi, tout devoir ajouté sera automatiquement considéré comme non rendu.
+
+<br>
+<img width="1680" alt="7" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/ce161ad5-cd23-44f1-a5b0-cff38948ab70">
+<br>
+
+Une fois l'ajout validé, le devoir est directement ajouté à la fin de la liste des devoir, et un snackbar apparaît pour valider que le devoir a été ajouté.
+
+#### 4.2. Le formulaire de modification user
+
+Ce formulaire, également structuré en étapes, affiche par défaut les informations actuelles du devoir sélectionné pour chaque champ accessible à un utilisateur normal. Pour modifier un devoir, il est nécessaire d'apporter des changements à au moins un des champs ; sans modification, le devoir ne pourra pas être mis à jour. Après avoir effectué et enregistré les modifications, un message apparaîtra pour confirmer que les détails du devoir ont été mis à jour. Ensuite, l'utilisateur est automatiquement redirigé vers la page du devoir récemment modifié, où les changements apportés sont immédiatement visibles.
+
+<br>
+<img width="1680" alt="8" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/c96a7a89-dea9-46e6-b76a-f84405ddef79">
+<br>
+
+### 5. Vision admin
+
+Une fois connecté en tant qu'administrateur, on dispose d'un accès complet à toutes les fonctionnalités disponibles sur le site.
+<br>
+<img width="1680" alt="9" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/8d43ccb4-4a81-44eb-9470-dee03a3245b0">
+<br>
+
+#### 5.1. Le formulaire d'ajout admin
+
+En complément des champs accessibles aux utilisateurs standards, un administrateur a la capacité de déterminer le statut d'un devoir. Si un devoir est marqué comme rendu, l'administrateur a l'option de l'évaluer, attribuant une note entre 0 et 20. Suite à cela, le devoir est considéré comme rendu et noté. L'administrateur a également la possibilité de ne pas attribuer de note, auquel cas le devoir est marqué comme rendu mais reste non noté. Si l'option de rendu n'est pas activée, alors le devoir est considéré comme non rendu et, de fait, non noté.
+
+<br>
+<img width="1680" alt="10" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/ce93cdd7-053b-4b9a-a9f2-54450082deea">
+<br>
+
+#### 5.2. Le formulaire de modification admin
+
+Similairement au formulaire utilisateur, celui de l'administrateur présente les mêmes caractéristiques de base, avec des fonctionnalités supplémentaires. Si un devoir a déjà été noté, l'administrateur a la possibilité de modifier cette note. De plus, si un devoir est marqué comme rendu mais n'a pas encore été noté, l'administrateur peut lui attribuer une note. Enfin, si un devoir n'est pas encore rendu, l'administrateur a l'option de changer son statut en rendu et, s'il le souhaite, de procéder à son évaluation.
+
+#### 5.3. Button Noter/Rendre un devoir
+
+Ce bouton, accessible depuis la barre latérale, nous redirige vers une page qui affiche une liste de tous les devoirs soit non rendus, soit rendus mais non notés. Cette interface permet de sélectionner et de noter un devoir de manière directe et efficace. En cliquant sur un devoir dans le tableau, une fenêtre apparaît, offrant un espace pour saisir une note entre 0 et 20. Une fois la note entrée dans cet intervalle, il suffit de cliquer sur le bouton de notation pour que la note soit attribuée au devoir choisi. Si le devoir sélectionné était initialement marqué comme non rendu, la saisie d'une note entraîne automatiquement un changement de statut ; le devoir est alors considéré comme rendu et noté.
+
+Un snackbar validera la modification effectuée.
+
+<br>
+<img width="1680" alt="11" src="https://github.com/hannadestiny/BORDJIBA-HANNA-Projet-Angular/assets/147160467/bdb08d82-1aca-4bc1-86ee-3e7e6ca75516">
+<br>
+
 
 
 
